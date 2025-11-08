@@ -269,6 +269,33 @@
   "LIMITED_TIME": "Tawaran Terhad",
   "READY_TO_EXPERIENCE_THE_PRODUCT": "Bersedia untuk Mengalami Produk Ini?",
   "READY_TO_EXPERIENCE_THE_PRODUCT_SUBTITLE": "Jangan lepaskan peluang anda!",
+  "VISION_TITLE": "Visi",
+  "VISION_DESCRIPTION": "Untuk menjadi perusahaan yang diiktiraf di peringkat global yang memimpin dengan inovasi, kemampanan dan kepercayaan, memperkayakan kehidupan dan membentuk masa depan yang lebih baik untuk generasi akan datang.",
+  "MISSION_TITLE": "Misi",
+  "MISSION_DESCRIPTION": "Untuk menyediakan produk berkualiti tinggi, inovatif dan boleh dipercayai yang meningkatkan kehidupan seharian, sambil mencipta nilai berkekalan untuk pelanggan, rakan kongsi dan komuniti melalui integriti dan kecemerlangan.",
+  "STRATEGIC_VISION": "Visi Strategik",
+  "TEAM_LEADERSHIP": "Kepimpinan Pasukan",
+  "BUSINESS_DEVELOPMENT": "Pembangunan Perniagaan",
+  "STRATEGIC_PLANNING": "Perancangan Strategik",
+  "OPERATIONAL_EFFICIENCY": "Kecekapan Operasi",
+  "CREATIVE_CRITICAL_THINKING": "Pemikiran Kreatif & Kritis",
+  "SOCIAL_MEDIA_STRATEGY": "Strategi Media Sosial",
+  "BRAND_COMMUNICATIONS": "Komunikasi Jenama",
+  "CUSTOMER_ENGAGEMENT": "Penglibatan Pelanggan",
+  "CUSTOMER_RELATIONS": "Perhubungan Pelanggan",
+  "SALES_STRATEGY": "Strategi Jualan",
+  "MARKET_ANALYSIS": "Analisis Pemasaran",
+  "FINANCIAL_PLANNING": "Perancangan Kewangan",
+  "DATA_ANALYSIS": "Analisis Data",
+  "PERFORMANCE_TRACKING": "Penjejakan Prestasi",
+  "TECHNICAL_PROFICIENCY": "Kemahiran Teknikal",
+  "PROBLEM_SOLVING": "Penyelesaian Masalah",
+  "DETAIL_ORIENTED": "Teliti",
+  "STAR_TITLE": "Rakan Kongsi Kebersihan Setiap Hari Anda",
+  "START_HEADLINE_TITLE": "Daripada tisu basah kepada penjagaan badan semula jadi, Wetty membawa kesegaran dan perlindungan untuk seisi keluarga anda pada bila-bila masa dan di mana-mana sahaja.",
+  "START_HEADLINE_SUBTITLE": "Produk basah dibina untuk keselesaan, perlindungan dan gaya supaya anda boleh meneroka lebih dalam dan tinggal lebih lama.",
+  "FEATURED_PRODUCT": "Produk yang Ditampilkan",
+  "OF": "dari",
 
 
   
@@ -442,5 +469,37 @@
     "DESCRIPTION_TWO": "Kami menyokong ejen kami dengan bahan promosi, latihan dan harga yang fleksibel untuk membantu mereka menjangkau lebih ramai pelanggan dengan berkesan. Kerjasama dan kerja berpasukan memacu pertumbuhan kami.", 
     "TITLE_THREE": "Inovasi Produk Mampan", 
     "DESCRIPTION_THREE": "Produk basah dibuat menggunakan bahan semula jadi, bebas alkohol dan mesra kulit, memastikan kepuasan pelanggan jangka panjang sambil menyokong tanggungjawab alam sekitar." 
+  },
+  "TEAM": {
+    "MEET_THE_TEAM": "Temui Pasukan",
+    "TITLE": "Pasukan Keusahawanan Kami",
+    "DESCRIPTION": "Kami menetapkan peranan secara strategik yang memanfaatkan setiap kekuatan dan kecekapan semula jadi ahli untuk membina usaha niaga produk yang berjaya.",
+    "CEO": "CEO",
+    "CEO_INSIGHT": "Kualiti kepimpinan semulajadi dan pemikiran strategik",
+    "COO": "COO/Pakar Strategi Model Perniagaan",
+    "COO_INSIGHT": "Kemahiran komunikasi yang kuat dan pemikiran kreatif",
+    "MARKETING_BRANDING_MANAGER": "Pengurus Pemasaran & Penjenamaan",
+    "MARKETING_BRANDING_MANAGER_INSIGHT": "Kemahiran interpersonal yang sangat baik dan keupayaan persuasif",
+    "SALES_MANAGER": "Pengurus Jualan",
+    "SALES_MANAGER_INSIGHT": "Berorientasikan perincian dan kekuatan organisasi",
+    "FINANCE_DATA_ANALYST": "Kewangan & Penganalisis Data",
+    "FINANCE_DATA_ANALYST_INSIGHT": "Pemikiran analitikal dan kecekapan berangka",
+    "TECH_WEBSITE_DEVELOPER": "Pembangun Teknik & Laman Web",
+    "TECH_WEBSITE_DEVELOPER_INSIGHT": "Pemikiran penyelesaian masalah dan kecekapan teknikal yang kukuh dalam pembangunan web"
+  },
+  "TRUST_SIGNALS": {
+    "TITLE": "Mengapa pilih Veyra Global Ventures?",
+    "OPTION_1": {
+      "TITLE": "Agen dan pengedar yang dipercayai",
+      "DESCRIPTION": "Veyra Global Ventures ialah ejen Wetty yang sah, sumber anda yang boleh dipercayai untuk produk kebersihan tulen."
+    },
+    "OPTION_2": {
+      "TITLE": "Penghantaran cepat & boleh dipercayai",
+      "DESCRIPTION": "Kami memproses dan menghantar pesanan anda sebaik sahaja stok tiba untuk memastikan anda menerima barangan anda tepat pada masanya dan setiap masa."
+    },
+    "OPTION_3": {
+      "TITLE": "Sokongan Pelanggan Peribadi",
+      "DESCRIPTION": "Kami menyediakan respons yang mesra dan pantas melalui WhatsApp, Sembang Shopee, dan media sosial untuk semua pertanyaan anda. penghantaran."
+    }
   }
 }

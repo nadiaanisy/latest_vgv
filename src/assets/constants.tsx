@@ -28,6 +28,17 @@ import {
 } from 'lucide-react'
 import { handleClicks, handleWhatsAppOrder } from '../functions/others';
 
+/* IMAGES */
+/* -- AVATAR -- */
+import yatiAvatar from './images/teams/yati.jpg';
+import isyqiAvatar from './images/teams/isyqi.jpg';
+import amirahAvatar from './images/teams/amirah.jpg';
+import kalimanAvatar from './images/teams/kaliman.jpg';
+import etengahAvatar from './images/teams/etengah.jpg';
+import christineAvatar from './images/teams/christine.jpg';
+
+/*----------------------------------------------------------*/
+
 export const email = "veyraglobalventuressdnbhd@gmail.com";
 export const fb = "https://www.facebook.com/share/1AsNBwPqTN/?mibextid=wwXIfr";
 export const whatsappNumber = "+60133461673";
@@ -315,4 +326,136 @@ export const businessSections = [
       "BUSINESS_MODEL_SECTION.COST_STRUCTURE_INDEX.FOUR"
     ],
   },
+];
+
+export const experiments = [
+  {
+    icon: <Instagram className="w-6 h-6" />,
+    title: "WHAT_WE_HAVE_TRIED_SECTION.ONE.TITLE",
+    period: "WHAT_WE_HAVE_TRIED_SECTION.ONE.PERIOD",
+    description: "WHAT_WE_HAVE_TRIED_SECTION.ONE.DESCRIPTION",
+    results_one: "WHAT_WE_HAVE_TRIED_SECTION.ONE.RESULT_ONE",
+    results_two: "WHAT_WE_HAVE_TRIED_SECTION.ONE.RESULT_TWO",
+    results_three: "WHAT_WE_HAVE_TRIED_SECTION.ONE.RESULT_THREE",
+    learnings: "WHAT_WE_HAVE_TRIED_SECTION.ONE.KEY_LEARNING"
+  },
+  {
+    icon: <Users className="w-6 h-6" />,
+    title: "WHAT_WE_HAVE_TRIED_SECTION.TWO.TITLE",
+    period: "WHAT_WE_HAVE_TRIED_SECTION.TWO.PERIOD",
+    description: "WHAT_WE_HAVE_TRIED_SECTION.TWO.DESCRIPTION",
+    results_one: "WHAT_WE_HAVE_TRIED_SECTION.TWO.RESULT_ONE",
+    results_two: "WHAT_WE_HAVE_TRIED_SECTION.TWO.RESULT_TWO",
+    results_three: "WHAT_WE_HAVE_TRIED_SECTION.TWO.RESULT_THREE",
+    learnings: "WHAT_WE_HAVE_TRIED_SECTION.TWO.KEY_LEARNING"
+  },
+  {
+    icon: <Megaphone className="w-6 h-6" />,
+    title: "WHAT_WE_HAVE_TRIED_SECTION.THREE.TITLE",
+    period: "WHAT_WE_HAVE_TRIED_SECTION.THREE.PERIOD",
+    description: "WHAT_WE_HAVE_TRIED_SECTION.THREE.DESCRIPTION",
+    results_one: "WHAT_WE_HAVE_TRIED_SECTION.THREE.RESULT_ONE",
+    results_two: "WHAT_WE_HAVE_TRIED_SECTION.THREE.RESULT_TWO",
+    learnings: "WHAT_WE_HAVE_TRIED_SECTION.THREE.KEY_LEARNING"
+  }
+];
+
+export const strategicApproach = [
+  {
+    "icon": <Megaphone className="w-5 h-5 text-green-600" />,
+    "title": "STRATEGIC_APPROACH_SECTION.TITLE_ONE",
+    "description": "STRATEGIC_APPROACH_SECTION.DESCRIPTION_ONE"
+  },
+  {
+    "icon": <Users className="w-5 h-5 text-purple-600" />,
+    "title": "STRATEGIC_APPROACH_SECTION.TITLE_TWO",
+    "description": "STRATEGIC_APPROACH_SECTION.DESCRIPTION_TWO"
+  },
+  {
+    "icon": <Target className="w-5 h-5 text-blue-600" />,
+    "title": "STRATEGIC_APPROACH_SECTION.TITLE_THREE",
+    "description": "STRATEGIC_APPROACH_SECTION.DESCRIPTION_THREE"
+  }
+];
+
+export const teamMembers = [
+  {
+    name: "Noor Zawatil Isyqi Binti Saiful Bahri",
+    role: "TEAM.CEO",
+    avatar: isyqiAvatar,
+    initials: "IS",
+    assignmentInsight: "TEAM.CEO_INSIGHT",
+    keyStrengths: ["STRATEGIC_VISION", "TEAM_LEADERSHIP", "BUSINESS_DEVELOPMENT"]
+  },
+  {
+    name: "Norhayati Binti Yahya",
+    role: "TEAM.COO",
+    avatar: yatiAvatar,
+    initials: "YY",
+    assignmentInsight: "TEAM.COO_INSIGHT",
+    keyStrengths: ["STRATEGIC_PLANNING", "OPERATIONAL_EFFICIENCY", "CREATIVE_CRITICAL_THINKING"]
+  },
+  {
+    name: "Etengah Bin Ebung",
+    role: "TEAM.MARKETING_BRANDING_MANAGER",
+    avatar: etengahAvatar,
+    initials: "EE",
+    assignmentInsight: "TEAM.MARKETING_BRANDING_MANAGER_INSIGHT",
+    keyStrengths: ["SOCIAL_MEDIA_STRATEGY", "BRAND_COMMUNICATIONS", "CUSTOMER_ENGAGEMENT"]
+  },
+  {
+    name: "Christine Bernadette A/P Francis",
+    role: "TEAM.SALES_MANAGER", 
+    avatar: christineAvatar,
+    initials: "CB",
+    assignmentInsight: "TEAM.SALES_MANAGER_INSIGHT",
+    keyStrengths: ["CUSTOMER_RELATIONS", "SALES_STRATEGY", "MARKET_ANALYSIS"]
+  },
+  {
+    name: "Nurkaliman Bin Mohamed Hamden",
+    role: "TEAM.FINANCE_DATA_ANALYST", 
+    avatar: kalimanAvatar,
+    initials: "NM",
+    assignmentInsight: "TEAM.FINANCE_DATA_ANALYST_INSIGHT",
+    keyStrengths: ["FINANCIAL_PLANNING", "DATA_ANALYSIS", "PERFORMANCE_TRACKING"]
+  },
+  {
+    name: "Amirah Farah Diyana Binti Mohd Razali",
+    role: "TEAM.TECH_WEBSITE_DEVELOPER", 
+    avatar: amirahAvatar,
+    initials: "AF",
+    assignmentInsight: "TEAM.TECH_WEBSITE_DEVELOPER_INSIGHT",
+    keyStrengths: ["TECHNICAL_PROFICIENCY", "PROBLEM_SOLVING", "DETAIL_ORIENTED"]
+  }
+];
+
+export const welcomeOverlaySlides = [
+  {
+    title: "Family Adventures Begin",
+    subtitle: "Where every family creates unforgettable water memories",
+    image: "https://images.unsplash.com/photo-1652535873270-2144d2c52d8a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYXBweSUyMGZhbWlseSUyMHN3aW1taW5nJTIwdG9nZXRoZXJ8ZW58MXx8fHwxNzU4OTc2ODkyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    icon: Users,
+    color: "from-blue-400 to-blue-600"
+  },
+  {
+    title: "Mother & Baby Care",
+    subtitle: "Gentle protection for life's most precious moments",
+    image: "https://images.unsplash.com/photo-1721571389052-9f65bc5f24b0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb3RoZXIlMjBiYWJ5JTIwd2F0ZXIlMjBzcG9ydHN8ZW58MXx8fHwxNzU4OTc2ODk0fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    icon: Baby,
+    color: "from-pink-400 to-purple-600"
+  },
+  {
+    title: "Sports Excellence",
+    subtitle: "Performance gear for champions and enthusiasts",
+    image: "https://images.unsplash.com/photo-1581560573661-974b0012185c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3YXRlciUyMHNwb3J0cyUyMGZhbWlseSUyMHN1cmZpbmd8ZW58MXx8fHwxNzU4OTc2ODk3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    icon: Waves,
+    color: "from-green-400 to-teal-600"
+  },
+  {
+    title: "Adventure Awaits",
+    subtitle: "Discover the depths with confidence and comfort",
+    image: "https://images.unsplash.com/photo-1588732722208-4b86b49699a6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZXRzdWl0JTIwZGl2aW5nJTIwYWR2ZW50dXJlfGVufDF8fHx8MTc1ODk3Njg5OXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    icon: Heart,
+    color: "from-orange-400 to-red-600"
+  }
 ];

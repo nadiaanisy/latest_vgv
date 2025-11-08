@@ -269,6 +269,33 @@
   "LIMITED_TIME": "Limited Time",
   "READY_TO_EXPERIENCE_THE_PRODUCT": "Ready to Experience This Product?",
   "READY_TO_EXPERIENCE_THE_PRODUCT_SUBTITLE": "Don't miss your chance!",
+  "VISION_TITLE": "Vision",
+  "VISION_DESCRIPTION": "To be a globally recognized enterprise that leads with innovation, sustainability, and trust, enriching lives and shaping a better future for generations to come.",
+  "MISSION_TITLE" : "Mission",
+  "MISSION_DESCRIPTION": "To provide high-quality , innovative, and reliable products that enhance everyday living, while creating lasting value for customers, partners, and communities through integrity and excellence.",
+  "STRATEGIC_VISION": "Strategic Vision",
+  "TEAM_LEADERSHIP": "Team Leadership",
+  "BUSINESS_DEVELOPMENT": "Business Development",
+  "STRATEGIC_PLANNING": "Strategic Planning",
+  "OPERATIONAL_EFFICIENCY": "Operational Efficiency",
+  "CREATIVE_CRITICAL_THINKING": "Creative & Critical Thinking",
+  "SOCIAL_MEDIA_STRATEGY": "Social Media Strategy",
+  "BRAND_COMMUNICATIONS": "Brand Communications",
+  "CUSTOMER_ENGAGEMENT": "Customer Engagement",
+  "CUSTOMER_RELATIONS": "Customer Relations",
+  "SALES_STRATEGY": "Sales Strategy",
+  "MARKET_ANALYSIS": "Market Analysis",
+  "FINANCIAL_PLANNING": "Financial Planning",
+  "DATA_ANALYSIS": "Data Analysis",
+  "PERFORMANCE_TRACKING": "Performance Tracking",
+  "TECHNICAL_PROFICIENCY": "Technical Proficiency",
+  "PROBLEM_SOLVING": "Problem-Solving",
+  "DETAIL_ORIENTED": "Detail Oriented",
+  "STAR_TITLE": "Your Everyday Hygiene Partner",
+  "START_HEADLINE_TITLE": "From wet tissues to natural body care, Wetty brings freshness and protection for your whole family anytime, and anywhere. ",
+  "START_HEADLINE_SUBTITLE": "Wetty products are built for comfort, protection, and style so you can explore deeper and stay out longer.",
+  "FEATURED_PRODUCT": "Featured Product",
+  "OF": "of",
 
   
 
@@ -442,5 +469,37 @@
     "DESCRIPTION_TWO": "We support our agents with promotional materials, training, and flexible pricing to help them reach more customers effectively. Collaboration and teamwork drive our growth.",
     "TITLE_THREE": "Sustainable Product Innovation",
     "DESCRIPTION_THREE": "Wetty products are made using natural, alcohol-free, and skin-friendly ingredients, ensuring long-term customer satisfaction while supporting environmental responsibility."
+  },
+  "TEAM": {
+    "MEET_THE_TEAM": "Meet the Team",
+    "TITLE": "Our Entrepreneurial Team",
+    "DESCRIPTION": "We strategically assigned roles that leverage each member natural strengths and competencies to build a successful product venture.",
+    "CEO": "CEO",
+    "CEO_INSIGHT": "Natural leadership qualities and strategic thinking",
+    "COO": "COO/Business Model Strategist",
+    "COO_INSIGHT": "Strong communication skills and creative mindset",
+    "MARKETING_BRANDING_MANAGER": "Marketing & Branding Manager",
+    "MARKETING_BRANDING_MANAGER_INSIGHT": "Excellent interpersonal skills and persuasive abilities",
+    "SALES_MANAGER": "Sales Manager",
+    "SALES_MANAGER_INSIGHT": "Detail-oriented and organizational strength",
+    "FINANCE_DATA_ANALYST": "Finance & Data Analyst",
+    "FINANCE_DATA_ANALYST_INSIGHT": "Analytical thinking and numerical competency",
+    "TECH_WEBSITE_DEVELOPER": "Tech & Website Developer",
+    "TECH_WEBSITE_DEVELOPER_INSIGHT": "Problem-solving mindset and strong technical proficiency in web development"
+  },
+  "TRUST_SIGNALS": {
+    "TITLE": "Why choose Veyra Global Ventures?",
+    "OPTION_1": {
+      "TITLE": "Trusted Agent & Distributor",
+      "DESCRIPTION": "Veyra Global Ventures is an authorized Wetty agent, your reliable source for authentic hygiene products."
+    },
+    "OPTION_2": {
+      "TITLE": "Fast & reliable deliveries",
+      "DESCRIPTION": "We process and ship your orders as soon as stock arrives to ensure you receive your items on time, every time."
+    },
+    "OPTION_3": {
+      "TITLE": "Personal Customer Support",
+      "DESCRIPTION": "We provide friendly and rapid responses through WhatsApp, Shopee Chat, and social media for all your inquiries."
+    }
   }
 }
