@@ -1,4 +1,11 @@
 {
+  "MENU_LIST": {
+    "HOME": "Utama",
+    "ABOUT_US": "Tentang Kami",
+    "PRODUCTS": "Produk",
+    "TESTIMONIAL": "Testimoni",
+    "CONTACT_US": "Hubungi Kami"
+  },
   "BUTTONS": {
     "LOGIN": "Log masuk",
     "LOGIN_IN": "Log masuk...",
@@ -44,6 +51,7 @@
     "ERROR_ENTER_CUSTOMER_NAME": "Sila masukkan nama pelanggan",
     "ERROR_FILL_ALL_REQUIRED_FIELDS": "Sila isi semua tempat yang diperlukan"
   },
+  "COMPANY_NAME": "Veyra Global Ventures",
   "ADMINISTRATOR": "Pentadbir",
   "ADMIN_LOGIN_TITLE": "Log Masuk Admin",
   "ADMIN_LOGIN_SUBTITLE": "Portal Pengurusan Veyra Global Ventures",
@@ -127,5 +135,51 @@
     "3": "3 Bintang - Purata",
     "2": "2 Bintang - Bawah Purata",
     "1": "1 Bintang - Lemah"
+  },
+    "WHAT_WORKED_SECTION": { 
+    "TITLE_ONE": "Penceritaan Tulen di Media Sosial", 
+    "DESCRIPTION_ONE": "Kami berkongsi pengalaman sebenar menggunakan produk Wetty, terutamanya menunjukkan cara mereka membantu penjaga, ibu dan keluarga dalam kehidupan seharian. Kandungan peribadi dan berkaitan ini membina kepercayaan yang kukuh dengan penonton kami.", 
+    "METRICS_ONE": "Mencapai 10 ribu+ penonton dan membina kepercayaan yang kukuh.",
+    "TITLE_TWO": "Promosi Dalam Talian Konsisten", 
+    "DESCRIPTION_TWO": "Menyiarkan secara kerap di WhatsApp, TikTok dan Instagram meningkatkan keterlihatan. Ulasan pendek, jujur ​​dan demonstrasi video mendapat penglibatan yang tinggi dan membawa kepada pertanyaan produk yang stabil.", 
+    "METRICS_TWO": "Penglibatan 40% lebih tinggi dan jualan 35% daripada rujukan.",
+    "TITLE_THREE": "Strategi Harga Mampu Milik & Fokus Keluarga", 
+    "DESCRIPTION_THREE": "Kami mengekalkan harga yang berpatutan sambil menyerlahkan bahan semulajadi Wetty yang bebas alkohol, menjadikannya pilihan yang boleh dipercayai untuk semua peringkat umur.", 
+    "METRICS_THREE": "Menyertai 12 acara dengan 150+ pelanggan baharu.",
+    "TITLE_FOUR": "Pengekalan Pelanggan", 
+    "DESCRIPTION_FOUR": "Pelanggan yang berpuas hati berkongsi pengalaman positif mereka dengan rakan dan keluarga. Banyak pesanan berulang datang daripada pengesyoran dan rujukan.", 
+    "METRICS_FOUR": "Mencapai kadar pesanan berulang 78%.",
+    "TITLE_FIVE": "Perkongsian dengan Ejen & Penjual Tempatan", 
+    "DESCRIPTION_FIVE": "Kami meluaskan jangkauan kami dengan bekerjasama dengan gerai kecil, gerai acara dan pasar mini, membantu meningkatkan kesedaran produk dan kebolehcapaian pelanggan.",
+    "METRICS_FIVE": "20+ rakan kongsi tempatan telah menyertai."
+  },
+  "WHAT_DIDNT_WORKED_SECTION": { 
+    "TITLE_ONE": "Pemasaran Terhad di Luar Kalangan Kami", 
+    "DESCRIPTION_ONE": "Kebanyakan promosi hanya tertumpu kepada kenalan rapat dan pengikut media sosial, jadi kesedaran produk dalam kalangan khalayak baharu kekal rendah.", 
+    "LESSON_ONE": "Kami belajar bahawa penting untuk memperluaskan usaha pemasaran melebihi kenalan terdekat bagi menarik lebih ramai pelanggan baharu dan meningkatkan kesedaran jenama.",
+    "IMPACT_ONE": "Potensi jualan terhad kerana hanya sebilangan kecil orang yang mengetahui tentang produk kami.",
+    "TITLE_TWO": "Jadual Penyiaran Tidak Konsisten", 
+    "DESCRIPTION_TWO": "Terdapat jurang dalam kemas kini media sosial, yang menjejaskan penglibatan dan menjadikannya lebih sukar untuk mengekalkan momentum dalam jualan.", 
+    "LESSON_TWO": "Kami belajar bahawa jadual hantaran yang konsisten membantu mengekalkan penglibatan audiens dan memastikan jenama sentiasa diingati.",
+    "IMPACT_TWO": "Kadar penglibatan menurun dan pengikut menjadi kurang berminat disebabkan kemas kini yang tidak konsisten.",
+    "TITLE_THREE": "Kurang Fokus pada Penjenamaan Jangka Panjang", 
+    "DESCRIPTION_THREE": "Walaupun pensampelan produk berfungsi dengan baik, kami menyedari bahawa penceritaan jenama dan identiti yang konsisten (logo, nada dan slogan) tidak cukup ditekankan untuk menjadikan Wetty lebih dikenali kepada orang ramai.",
+    "LESSON_THREE": "Kami sedar bahawa identiti jenama yang kukuh dan konsisten amat penting untuk pengiktirafan jangka panjang serta membina kepercayaan pelanggan.",
+    "IMPACT_THREE": "Produk kekurangan identiti yang jelas, menyebabkan pelanggan sukar mengingati dan membezakan daripada pesaing lain."
+  },
+  "SUCCESS_FACTORS_SECTION": { 
+    "MAIN_POINT_1": "Kualiti Produk Kuat",
+    "POINT_1": "Produk basah diperbuat daripada bahan semula jadi, bebas alkohol, selamat untuk semua peringkat umur, memberikan kepercayaan dan kepuasan kepada pelanggan.", 
+    "MAIN_POINT_2": "Harga Mampu Milik",
+    "POINT_2": "Harga yang kompetitif menarik pembeli berulang dan menjadikan Wetty sebagai jenama isi rumah pilihan.", 
+    "MAIN_POINT_3": "Promosi Tulen",
+    "POINT_3": "Kisah penggunaan kehidupan sebenar (terutamanya pengalaman penjaga) mewujudkan hubungan emosi dan kredibiliti.", 
+    "MAIN_POINT_4": "Kesetiaan Pelanggan",
+    "POINT_4": "Maklum balas positif dan pesanan berulang menunjukkan prestasi produk yang konsisten dan kepuasan pelanggan." 
+  },
+  "AREAS_OF_IMPROVEMENT_SECTION": { 
+    "POINT_1": "Perluaskan Jangkauan Pemasaran: Tingkatkan kesedaran melalui iklan berbayar, kerjasama influencer dan lebih banyak acara komuniti.", 
+    "POINT_2": "Tingkatkan Keterlihatan Dalam Talian: Tingkatkan kehadiran Shopee dan TikTok dengan video produk, ulasan pelanggan dan penerangan produk yang lebih jelas.", 
+    "POINT_3": "Tingkatkan Pembungkusan & Penjenamaan: Kemas kini reka bentuk dan pelabelan untuk penampilan yang lebih profesional dan menarik perhatian." 
   }
 }

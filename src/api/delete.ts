@@ -2,11 +2,9 @@ import { toast } from 'sonner';
 import {
   catchError,
   errorToastStyle,
-  successToastStyle
 } from '../functions/catchError';
 import { db } from '../assets/constants';
 import { deleteHelper } from './apiHelper';
-import { fetchProducts } from './get';
 
 export const deleteTestimonials = async (
   id: number

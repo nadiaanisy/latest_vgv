@@ -1,4 +1,11 @@
 {
+  "MENU_LIST": {
+    "HOME": "Home",
+    "ABOUT_US": "About Us",
+    "PRODUCTS": "Products",
+    "TESTIMONIAL": "Testimonial",
+    "CONTACT_US": "Contact Us"
+  },
   "BUTTONS": {
     "LOGIN": "Login",
     "LOGIN_IN": "Login in...",
@@ -44,6 +51,7 @@
     "ERROR_ENTER_CUSTOMER_NAME": "Please enter customer name",
     "ERROR_FILL_ALL_REQUIRED_FIELDS": "Please fill in all required fields"
   },
+  "COMPANY_NAME": "Veyra Global Ventures",
   "ADMINISTRATOR": "Administrator",
   "ADMIN_LOGIN_TITLE": "Admin Login",
   "ADMIN_LOGIN_SUBTITLE": "Veyra Global Ventures Management Portal",
@@ -127,5 +135,51 @@
     "3": "3 Stars - Average",
     "2": "2 Stars - Below Average",
     "1": "1 Star - Poor"
+  },
+  "WHAT_WORKED_SECTION": {
+    "TITLE_ONE": "Authentic Storytelling on Social Media",
+    "DESCRIPTION_ONE": "We shared real experiences using Wetty products, especially showing how they help caregivers, mothers, and families in daily life. This personal and relatable content built strong trust with our audience.",
+    "METRICS_ONE": "Reached 10K+ viewers and built strong trust.",
+    "TITLE_TWO": "Consistent Online Promotion",
+    "DESCRIPTION_TWO": "Posting regularly on WhatsApp, TikTok, and Instagram increased visibility. Short, honest reviews and video demonstrations gained high engagement and led to steady product inquiries.",
+    "METRICS_TWO": "40% higher engagement and 35% sales from referrals.",
+    "TITLE_THREE": "Affordable & Family-Focused Pricing Strategy",
+    "DESCRIPTION_THREE": "We maintained reasonable prices while highlighting Wetty’s natural, alcohol-free ingredients, making it a reliable choice for all ages.",
+    "METRICS_THREE": "Joined 12 events with 150+ new customers.",
+    "TITLE_FOUR": "Customer Retention",
+    "DESCRIPTION_FOUR": "Satisfied customers shared their positive experiences with friends and family. Many repeated orders came from recommendations and referrals.",
+    "METRICS_FOUR": "Achieved 78% repeat order rate.",
+    "TITLE_FIVE": "Partnership with Local Agents & Vendors",
+    "DESCRIPTION_FIVE": "We expanded our reach by collaborating with small stalls, event booths, and mini markets, helping increase product awareness and customer accessibility.",
+    "METRICS_FIVE": "20+ local partners onboarded."
+  },
+  "WHAT_DIDNT_WORKED_SECTION": {
+    "TITLE_ONE": "Limited Marketing Outside Our Circle",
+    "DESCRIPTION_ONE": "Most promotions focused only on close contacts and social media followers, so product awareness among new audiences remained low.",
+    "LESSON_ONE": "We learned the importance of expanding marketing efforts beyond our immediate network to reach new audiences and grow brand visibility.",
+    "IMPACT_ONE": "Our sales potential was limited because only a small group of people knew about the product.",
+    "TITLE_TWO": "Inconsistent Posting Schedule",
+    "DESCRIPTION_TWO": "There were gaps in social media updates, which affected engagement and made it harder to maintain momentum in sales.",
+    "LESSON_TWO": "We learned that consistent posting helps maintain audience engagement and keeps the brand active in people’s minds.",
+    "IMPACT_TWO": "Engagement dropped and followers became less interested due to irregular updates.",
+    "TITLE_THREE": "Less Focus on Long-Term Branding",
+    "DESCRIPTION_THREE": "While product sampling worked well, we realized that brand storytelling and consistent identity (logo, tone, and tagline) were not emphasized enough to make Wetty more recognizable to the public.",
+    "LESSON_THREE": "We realized that a strong and consistent brand identity is crucial for long-term recognition and customer trust.",
+    "IMPACT_THREE": "The product lacked a clear identity, making it harder for customers to remember and differentiate it from competitors."
+  },
+  "SUCCESS_FACTORS_SECTION": {
+    "MAIN_POINT_1": "Strong Product Quality",
+    "POINT_1": "Wetty products are made from natural, alcohol-free ingredients, safe for all ages, giving customers trust and satisfaction.",
+    "MAIN_POINT_2": "Affordable Pricing",
+    "POINT_2": "Competitive prices attract repeat buyers and make Wetty a preferred household brand.",
+    "MAIN_POINT_3": "Authentic Promotion",
+    "POINT_3": "Real-life usage stories (especially caregiver experiences) create emotional connection and credibility.",
+    "MAIN_POINT_4": "Customer Loyalty",
+    "POINT_4": "Positive feedback and repeat orders show consistent product performance and customer satisfaction."
+  },
+  "AREAS_OF_IMPROVEMENT_SECTION": {
+    "POINT_1": "Expand Marketing Reach: Increase awareness through paid ads, influencer collaborations, and more community events.",
+    "POINT_2": "Boost Online Visibility: Improve Shopee and TikTok presence with product videos, customer reviews, and clearer product descriptions.",
+    "POINT_3": "Enhance Packaging & Branding: Update design and labeling for a more professional and eye-catching look."
   }
 }
