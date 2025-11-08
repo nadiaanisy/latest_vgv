@@ -18,7 +18,16 @@
     "UPLOAD": "Upload",
     "ADD_TESTIMONIAL": "Add Testimonial",
     "ADD_PRODUCT": "Add Product",
-    "BACK_TO_HOME": "Back to Home"
+    "BACK_TO_HOME": "Back to Home",
+    "ORDER_VIA_WHATSAPP": "Order via WhatsApp",
+    "ORDER_NOW": "Order Now",
+    "INQUIRIES": "Inquiries",
+    "VIEW_PRODUCTS": "View Products",
+    "WHATSAPP_US_NOW": "WhatsApp Us Now",
+    "SEND_EMAIL": "Send Email",
+    "ORDER_NOW_VIA_WHATSAPP": "Order Now via WhatsApp",
+    "VIEW_OPTIONS": "View Options",
+    "FOLLOW_ON_INSTAGRAM": "Follow on Instagram"
   },
   "PLACEHOLDERS": {
     "USERNAME": "Enter username",
@@ -397,5 +406,41 @@
       "THREE": "Online Marketplaces and Small Retailers",
       "FOUR": "Social Media Influencers and Collaborators"
     }
+  },
+  "WHAT_WE_HAVE_TRIED_SECTION": {
+    "ONE": {
+      "TITLE": "Social Media Campaign",
+      "PERIOD": "January – March 2025",
+      "DESCRIPTION": "Promotional posts and product demonstrations on TikTok, Instagram, and Facebook, focusing on wet tissues and antibacterial shower gels.",
+      "RESULT_ONE": "20,000+ total views",
+      "RESULT_TWO": "500+ engagements",
+      "RESULT_THREE": "60 direct messages and customer inquiries",
+      "KEY_LEARNING": "Authentic content showing real usage and caregiving moments (especially for elderly and family care) gained stronger trust and higher sales conversions."
+    },
+    "TWO": {
+      "TITLE": "Community Booth Sales",
+      "PERIOD": "April – May 2025",
+      "DESCRIPTION": "Set up mini booths at local bazaars and health events to showcase Wetty products — including free samples and demo wipes.",
+      "RESULT_ONE": "300+ visitors approached",
+      "RESULT_TWO": "8 sample packs given",
+      "RESULT_THREE": "40 confirmed purchases",
+      "KEY_LEARNING": "Face-to-face demos increase confidence in product quality. Customers love the natural scent and non-sticky texture."
+    },
+    "THREE": {
+      "TITLE": "Peer Recommendation Network",
+      "PERIOD": "Ongoing since June 2025",
+      "DESCRIPTION": "Encouraged agents and customers to promote Wetty through personal sharing and WhatsApp groups.",
+      "RESULT_ONE": "35% sales growth through referral system",
+      "RESULT_TWO": "RM12,000+ in total revenue from repeat customers",
+      "KEY_LEARNING": "Personal recommendations and testimonials from real users (especially caregivers and parents) remain the strongest driver for trust and repurchase."
+    }
+  },
+  "STRATEGIC_APPROACH_SECTION": {
+    "TITLE_ONE": "Customer-Centered Marketing",
+    "DESCRIPTION_ONE": "We highlight real stories and genuine experiences from users — especially caregivers, parents, and working adults — to create emotional connections and brand authenticity.",
+    "TITLE_TWO": "Agent & Distributor Empowerment",
+    "DESCRIPTION_TWO": "We support our agents with promotional materials, training, and flexible pricing to help them reach more customers effectively. Collaboration and teamwork drive our growth.",
+    "TITLE_THREE": "Sustainable Product Innovation",
+    "DESCRIPTION_THREE": "Wetty products are made using natural, alcohol-free, and skin-friendly ingredients, ensuring long-term customer satisfaction while supporting environmental responsibility."
   }
 }

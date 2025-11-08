@@ -18,7 +18,16 @@
     "UPLOAD": "Muat Naik",
     "ADD_TESTIMONIAL": "Tambah Testimoni",
     "ADD_PRODUCT": "Tambah Produk",
-    "BACK_TO_HOME": "Kembali ke Halaman Utama"
+    "BACK_TO_HOME": "Kembali ke Halaman Utama",
+    "ORDER_VIA_WHATSAPP": "Pesan melalui WhatsApp",
+    "ORDER_NOW": "Pesan Sekarang",
+    "INQUIRIES": "Pertanyaan",
+    "VIEW_PRODUCTS": "Lihat Produk",
+    "WHATSAPP_US_NOW": "WhatsApp Kami Sekarang",
+    "SEND_EMAIL": "Hantar Emel",
+    "ORDER_NOW_VIA_WHATSAPP": "Pesan Sekarang melalui WhatsApp",
+    "VIEW_OPTIONS": "Lihat Pilihan",
+    "FOLLOW_ON_INSTAGRAM": "Ikuti di Instagram"
   },
   "PLACEHOLDERS": {
     "USERNAME": "Masukkan nama pengguna",
@@ -397,5 +406,41 @@
       "THREE": "Pasaran Dalam Talian dan Peruncit Kecil",
       "FOUR": "Pengaruh dan Kolaborator Media Sosial"
     }
+  },
+  "WHAT_WE_HAVE_CUED_SECTION": { 
+    "ONE": { 
+      "TITLE": "Kempen Media Sosial", 
+      "PERIOD": "Januari – Mac 2025", 
+      "DESCRIPTION": "Siaran promosi dan demonstrasi produk di TikTok, Instagram dan Facebook, memfokuskan pada tisu basah dan gel mandian antibakteria.", 
+      "RESULT_ONE": "20,000+ jumlah tontonan", 
+      "RESULT_TWO": "500+ pertunangan", 
+      "RESULT_THREE": "60 mesej langsung dan pertanyaan pelanggan", 
+      "KEY_LEARNING": "Kandungan tulen yang menunjukkan penggunaan sebenar dan detik-detik penjagaan (terutama untuk penjagaan warga emas dan keluarga) mendapat kepercayaan yang lebih kukuh dan penukaran jualan yang lebih tinggi." 
+    }, 
+    "TWO": { 
+      "TITLE": "Jualan Gerai Komuniti", 
+      "PERIOD": "April – Mei 2025", 
+      "DESCRIPTION": "Sediakan gerai mini di bazar tempatan dan acara kesihatan untuk mempamerkan produk Wetty — termasuk sampel percuma dan kain lap demo.", 
+      "RESULT_ONE": "300+ pelawat menghampiri", 
+      "RESULT_TWO": "8 pek sampel diberikan", 
+      "RESULT_THREE": "40 pembelian disahkan", 
+      "KEY_LEARNING": "Demo secara bersemuka meningkatkan keyakinan terhadap kualiti produk. Pelanggan menyukai bau semula jadi dan tekstur tidak melekit." 
+    }, 
+    "THREE": { 
+      "TITLE": "Rangkaian Syor Rakan Sebaya", 
+      "PERIOD": "Berlangsung sejak Jun 2025", 
+      "DESCRIPTION": "Menggalakkan ejen dan pelanggan mempromosikan Wetty melalui perkongsian peribadi dan kumpulan WhatsApp.", 
+      "RESULT_ONE": "35% pertumbuhan jualan melalui sistem rujukan", 
+      "RESULT_TWO": "RM12,000+ jumlah hasil daripada pelanggan berulang", 
+      "KEY_LEARNING": "Syor peribadi dan testimoni daripada pengguna sebenar (terutama penjaga dan ibu bapa) kekal sebagai pemacu terkuat untuk kepercayaan dan pembelian semula." 
+    } 
+  },
+  "STRATEGIC_APPROACH_SECTION": { 
+    "TITLE_ONE": "Pemasaran Berpusatkan Pelanggan", 
+    "DESCRIPTION_ONE": "Kami menyerlahkan kisah sebenar dan pengalaman tulen daripada pengguna — terutamanya penjaga, ibu bapa dan orang dewasa yang bekerja — untuk mewujudkan hubungan emosi dan keaslian jenama.", 
+    "TITLE_TWO": "Pemerkasaan Ejen & Pengedar", 
+    "DESCRIPTION_TWO": "Kami menyokong ejen kami dengan bahan promosi, latihan dan harga yang fleksibel untuk membantu mereka menjangkau lebih ramai pelanggan dengan berkesan. Kerjasama dan kerja berpasukan memacu pertumbuhan kami.", 
+    "TITLE_THREE": "Inovasi Produk Mampan", 
+    "DESCRIPTION_THREE": "Produk basah dibuat menggunakan bahan semula jadi, bebas alkohol dan mesra kulit, memastikan kepuasan pelanggan jangka panjang sambil menyokong tanggungjawab alam sekitar." 
   }
 }
