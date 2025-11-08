@@ -15,6 +15,7 @@ export const useCustomHook= () => {
   const [splashCompleted, setSplashCompleted] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   
   /* ADMIN RELATED */
   const [isAdminRoute, setIsAdminRoute] = useState(false);
@@ -77,6 +78,8 @@ export const useCustomHook= () => {
     handleNavigate,
     selectedProductId,
     setSelectedProductId,
+    isSubmitting,
+    setIsSubmitting,
 
     
 
