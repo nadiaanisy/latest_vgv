@@ -1,0 +1,88 @@
+{
+  "BUTTONS": {
+    "LOGIN": "Login",
+    "LOGIN_IN": "Login in...",
+    "LOGOUT": "Logout",
+    "CANCEL": "Cancel",
+    "SAVE": "Save",
+    "UPDATE": "Update",
+    "DELETE": "Delete",
+    "ADD_TESTIMONIAL": "Add Testimonial",
+    "ADD_PRODUCT": "Add Product"
+  },
+  "PLACEHOLDERS": {
+    "USERNAME": "Enter username",
+    "PASSWORD": "Enter password",
+    "CUSTOMER_NAME": "Enter customer name",
+    "ROLE_TITLE": "e.g., Professional Surfer",
+    "COMPANY_ORGANIZATION": "e.g., Ocean Sports Academy",
+    "RATING": "Select rating",
+    "REVIEW_COMMENT": "Enter customer review or feedback",
+    "LOCATION": "Please select your location",
+    "PRODUCT_NAME": "Enter product name",
+    "SEARCH_TESTIMONIALS": "Search testimonials (eg: name, company, comment, location, product)"
+  },
+  "MESSAGES": {
+    "SUCCESS_LOGIN": "Login successful!",
+    "SUCCESS_LOGOUT": "Logout successful!",
+    "SUCCESS_TESTIMONIAL_ADDED": "Testimonial added successfully!",
+    "SUCCESS_TESTIMONIAL_UPDATED": "Testimonial updated successfully!",
+    "SUCCESS_TESTIMONIAL_DELETED": "Testimonial deleted successfully!",
+    "ERROR_LOGIN_FAILED": "Login failed",
+    "ERROR_LOGIN_FAILED_MESSAGE": "Invalid username or password",
+    "ERROR_ENTER_CUSTOMER_NAME": "Please enter customer name",
+    "ERROR_FILL_ALL_REQUIRED_FIELDS": "Please fill in all required fields"
+  },
+  "ADMINISTRATOR": "Administrator",
+  "ADMIN_LOGIN_TITLE": "Admin Login",
+  "ADMIN_LOGIN_SUBTITLE": "Veyra Global Ventures Management Portal",
+  "ADMIN_WELCOME_DASHBOARD_TITLE": "Welcome to the admin dashboard",
+  "ADMIN_VEYRA_PORTAL_TITLE": "Veyra Admin Portal",
+  "ADMIN_VEYRA_PORTAL_SUBTITLE": "Management Dashboard",
+  "TESTIMONIAL_MANAGEMENT_TITLE": "Testimonial Management",
+  "TESTIMONIAL_MANAGEMENT_SUBTITLE": "Manage customer reviews and feedback",
+  "TESTIMONI_FORM_TITLE_ADD": "Add New Testimonial",
+  "TESTIMONI_FORM_SUBTITLE_ADD": "Add a new customer testimonial or review",
+  "CUSTOMER_INFORMATION": "Customer Information",
+  "PRODUCT_REVIEWS": "Product Reviews",
+  "REVIEWS": "Review",
+  "AVG_RATING": "Avg Rating",
+  "NO_TESTIMONIALS_FOUND": "No testimonials found",
+  "TESTIMONIAL_FORM_TITLE_EDIT": "Edit Testimonial",
+  "TESTIMONIAL_FORM_SUBTITLE_EDIT": "Update testimonial details",
+  "ARE_YOU_SURE_TESTIMONIAL_DELETION_TITLE": "Are you sure?",
+  "ARE_YOU_SURE_TESTIMONIAL_DELETION_DESCRIPTION": "This action cannot be undone. This will permanently delete the testimonial.",
+  
+  
+
+
+
+  "USERNAME": "Username",
+  "PASSWORD": "Password",
+  "CUSTOMER_NAME": "Customer Name",
+  "ROLE_TITLE": "Role/Title",
+  "COMPANY_ORGANIZATION": "Company/Organization",
+  "RATING": "Rating",
+  "REVIEW_COMMENT": "Review/Comment",
+  "LOCATION": "Location",
+  "AVATAR_URL": "Avatar URL",
+  "PRODUCT_NAME": "Product Name",
+  
+
+
+  "ANALYTICS": "Analytics",
+  "STATS": "Stats",
+  "PRODUCTS": "Products",
+  "ITEMS_CAPITAL": "Items",
+  "TESTIMONIALS": "Testimonials",
+  "REVIEW": "Review",
+
+
+  "RATING_LIST": {
+    "5": "5 Stars - Excellent",
+    "4": "4 Starts - Good",
+    "3": "3 Stars - Average",
+    "2": "2 Stars - Below Average",
+    "1": "1 Star - Poor"
+  }
+}
