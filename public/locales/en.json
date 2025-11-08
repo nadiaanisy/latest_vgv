@@ -7,6 +7,8 @@
     "SAVE": "Save",
     "UPDATE": "Update",
     "DELETE": "Delete",
+    "ADD": "Add",
+    "UPLOAD": "Upload",
     "ADD_TESTIMONIAL": "Add Testimonial",
     "ADD_PRODUCT": "Add Product"
   },
@@ -20,7 +22,13 @@
     "REVIEW_COMMENT": "Enter customer review or feedback",
     "LOCATION": "Please select your location",
     "PRODUCT_NAME": "Enter product name",
-    "SEARCH_TESTIMONIALS": "Search testimonials (eg: name, company, comment, location, product)"
+    "SEARCH_TESTIMONIALS": "Search testimonials (eg: name, company, comment, location, product)",
+    "SEARCH_PRODUCTS": "Search products by name or category...",
+    "CATEGORY": "Enter product category",
+    "STOCK": "0",
+    "PRODUCT_DESCRIPTION_SHORT": "Enter product short description",
+    "PRODUCT_DESCRIPTION_LONG": "Enter product long description",
+    "WHY_CHOOSEN": "Enter reasons why the product is chosen"
   },
   "MESSAGES": {
     "SUCCESS_LOGIN": "Login successful!",
@@ -28,6 +36,9 @@
     "SUCCESS_TESTIMONIAL_ADDED": "Testimonial added successfully!",
     "SUCCESS_TESTIMONIAL_UPDATED": "Testimonial updated successfully!",
     "SUCCESS_TESTIMONIAL_DELETED": "Testimonial deleted successfully!",
+    "SUCCESS_PRODUCT_ADDED": "Product added successfully!",
+    "SUCCESS_PRODUCT_UPDATED": "Product updated successfully!",
+    "SUCCESS_PRODUCT_DELETED": "Product deleted successfully!",
     "ERROR_LOGIN_FAILED": "Login failed",
     "ERROR_LOGIN_FAILED_MESSAGE": "Invalid username or password",
     "ERROR_ENTER_CUSTOMER_NAME": "Please enter customer name",
@@ -52,10 +63,23 @@
   "TESTIMONIAL_FORM_SUBTITLE_EDIT": "Update testimonial details",
   "ARE_YOU_SURE_TESTIMONIAL_DELETION_TITLE": "Are you sure?",
   "ARE_YOU_SURE_TESTIMONIAL_DELETION_DESCRIPTION": "This action cannot be undone. This will permanently delete the testimonial.",
-  
-  
-
-
+  "PRODUCT_MANAGEMENT_TITLE": "Product Management",
+  "PRODUCT_MANAGEMENT_SUBTITLE": "View, Add, edit, or remove products from your catalog",
+  "ADD_NEW_PRODUCT_TITLE": "Add New Product",
+  "ADD_NEW_PRODUCT_SUBTITLE": "Fill in the details to add a new product to your catalog",
+  "PRODUCT_LIST_TITLE": "Products List",
+  "PRODUCT_LIST_SUBTITLE": "Manage your product inventory",
+  "TAB_BASIC_INFO": "Basic Info",
+  "TAB_DETAILS": "Details",
+  "TAB_FEATURES": "Features",
+  "TAB_OPTIONS": "Options",
+  "ACTIONS": "Actions",
+  "NO_PRODUCTS_FOUND": "No products found",
+  "NO_OPTIONS": "No options",
+  "EDIT_PRODUCT_TITLE": "Edit Product",
+  "EDIT_PRODUCT_SUBTITLE": "Update product details",
+  "ARE_YOU_SURE_PRODUCT_DELETION_TITLE": "Are you sure?",
+  "ARE_YOU_SURE_PRODUCT_DELETION_DESCRIPTION": "This action cannot be undone. This will permanently delete the product from your catalog",
 
   "USERNAME": "Username",
   "PASSWORD": "Password",
@@ -67,8 +91,27 @@
   "LOCATION": "Location",
   "AVATAR_URL": "Avatar URL",
   "PRODUCT_NAME": "Product Name",
-  
+  "CATEGORY": "Category",
+  "PRODUCT_IMAGE": "Product Image",
+  "PRICE_RANGE": "Price Range",
+  "ORIGINAL_PRICE": "Original Price",
+  "SALE_PRICE": "Sale Price",
+  "STOCK": "Stock",
+  "PRODUCT_DESCRIPTION_SHORT": "Short Description",
+  "PRODUCT_DESCRIPTION_LONG": "Long Description",
+  "WHY_CHOOSEN": "Why Chosen",
+  "TARGET_MARKET": "Target Market",
+  "BENEFITS": "Benefits",
+  "PRODUCT_HAS_OPTIONS": "Product Has Options",
+  "NO_OPTIONS_ADDED": "No options added. Click 'Add' to create product variants.",
+  "OPTION": "Option",
+  "OPTION_NAME": "Option Name",
+  "DESCRIPTION": "Description",
+  "OPTION_IMAGE": "Option Product Image",
+  "OPTION_IMAGE_URL": "Or enter image URL:",
+  "SHOPEE_LINK": "Shopee Link",
 
+  
 
   "ANALYTICS": "Analytics",
   "STATS": "Stats",

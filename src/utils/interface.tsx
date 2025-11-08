@@ -18,7 +18,6 @@ export interface ProductReview {
 }
 
 export interface Product {
-  id: string
   image: string
   name: {
     EN: string
@@ -34,7 +33,7 @@ export interface Product {
     BM: string
   }
   priceRange: string
-  originalPrice: string
+  originalPrice: number
   whyChosen: {
     EN: string
     BM: string
@@ -51,6 +50,7 @@ export interface Product {
   salePrice?: number
   shopeeLink?: string
   stock?: number
+  id?: number
   options?: {
     name?: {
       EN: string
@@ -63,7 +63,7 @@ export interface Product {
       BM: string
     }
     image?: string
-    shopeeLink?: string
+    shopeeLink?: string,
   }[]
 }
 
@@ -100,6 +100,7 @@ export interface ProductFormData {
   shopeeLink: string
   stock: string
   image: string
+  id?: number
   options: {
     name: {
       EN: string
