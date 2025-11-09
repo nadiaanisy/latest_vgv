@@ -1,3 +1,4 @@
+import i18next from 'i18next';
 import { toast } from 'sonner';
 import {
   catchError,
@@ -13,7 +14,7 @@ export const deleteTestimonials = async (
     const { error } = await deleteHelper(db.table.testimonials, id);
 
     if (error) {
-      toast.error('Failed to delete testimonial', errorToastStyle)
+      toast.error(i18next.t('MESSAGES.ERROR_FAILED_TO_DELETE_TESTIMONIAL') as string, errorToastStyle)
       return
     }
 
@@ -30,7 +31,7 @@ export const deleteProduct = async (
     const { error } = await deleteHelper(db.table.products, id);
 
     if (error) {
-      toast.error('Failed to delete product', errorToastStyle)
+      toast.error(i18next.t('MESSAGES.ERROR_FAILED_TO_DELETE_PRODUCT') as string, errorToastStyle)
       return
     }
 

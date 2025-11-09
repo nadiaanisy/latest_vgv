@@ -1,3 +1,4 @@
+import i18next from 'i18next';
 import { toast } from 'sonner';
 import {
   catchError,
@@ -13,7 +14,7 @@ export const fetchTestimonials = async (): Promise<Testimonial[]> => {
       .order('date', { ascending: false });
 
     if (error) {
-      toast.error('Failed to load', errorToastStyle);
+      toast.error(i18next.t('MESSAGES.ERROR_FAILED_TO_LOAD_TESTIMONIALS') as string, errorToastStyle);
       return [];
     }
 
@@ -29,7 +30,7 @@ export const fetchProducts = async (): Promise<any[]> => {
     const {data, error } = await getHelper(db.table.products, db.query.all);
 
     if (error) {
-      toast.error('Failed to load products', errorToastStyle);
+      toast.error(i18next.t('MESSAGES.ERROR_FAILED_TO_LOAD_PRODUCTS') as string, errorToastStyle);
       return [];
     }
 

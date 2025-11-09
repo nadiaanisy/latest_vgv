@@ -37,6 +37,12 @@ import kalimanAvatar from './images/teams/kaliman.jpg';
 import etengahAvatar from './images/teams/etengah.jpg';
 import christineAvatar from './images/teams/christine.jpg';
 
+/* -- WELCOME TOUR -- */
+import wt1 from './images/welcome_tour/1.jpg';
+import wt2 from './images/welcome_tour/2.jpg';
+import wt3 from './images/welcome_tour/3.jpg';
+import wt4 from './images/welcome_tour/4.jpg';
+
 /*----------------------------------------------------------*/
 
 export const email = "veyraglobalventuressdnbhd@gmail.com";
@@ -431,30 +437,30 @@ export const teamMembers = [
 
 export const welcomeOverlaySlides = [
   {
-    title: "Family Adventures Begin",
-    subtitle: "Where every family creates unforgettable water memories",
-    image: "https://images.unsplash.com/photo-1652535873270-2144d2c52d8a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxoYXBweSUyMGZhbWlseSUyMHN3aW1taW5nJTIwdG9nZXRoZXJ8ZW58MXx8fHwxNzU4OTc2ODkyfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    title: "Gentle on Skin, Tough on Germs",
+    subtitle: "Effective antibacterial protection without irritation",
+    image: wt1,
     icon: Users,
     color: "from-blue-400 to-blue-600"
   },
   {
-    title: "Mother & Baby Care",
-    subtitle: "Gentle protection for life's most precious moments",
-    image: "https://images.unsplash.com/photo-1721571389052-9f65bc5f24b0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb3RoZXIlMjBiYWJ5JTIwd2F0ZXIlMjBzcG9ydHN8ZW58MXx8fHwxNzU4OTc2ODk0fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    title: "Eco-Friendly & Biodegradable",
+    subtitle: "Made with care for you and the planet",
+    image: wt2,
     icon: Baby,
-    color: "from-pink-400 to-purple-600"
+    color: "from-green-400 to-emerald-600"
   },
   {
-    title: "Sports Excellence",
-    subtitle: "Performance gear for champions and enthusiasts",
-    image: "https://images.unsplash.com/photo-1581560573661-974b0012185c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3YXRlciUyMHNwb3J0cyUyMGZhbWlseSUyMHN1cmZpbmd8ZW58MXx8fHwxNzU4OTc2ODk3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    title: "Dermatologically Tested & Family-Safe",
+    subtitle: "Trusted quality for every member of the family",
+    image: wt3,
     icon: Waves,
     color: "from-green-400 to-teal-600"
   },
   {
-    title: "Adventure Awaits",
-    subtitle: "Discover the depths with confidence and comfort",
-    image: "https://images.unsplash.com/photo-1588732722208-4b86b49699a6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3ZXRzdWl0JTIwZGl2aW5nJTIwYWR2ZW50dXJlfGVufDF8fHx8MTc1ODk3Njg5OXww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    title: "Everyday Freshness, Anytime",
+    subtitle: "Easy wipes for quick cleanups at home, school or travel",
+    image: wt4,
     icon: Heart,
     color: "from-orange-400 to-red-600"
   }

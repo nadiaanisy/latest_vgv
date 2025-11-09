@@ -21,12 +21,15 @@ export function WelcomeOverlay({ isVisible, onClose }: WelcomeOverlayProps) {
   // Auto-advance slides
   useEffect(() => {
     if (!isVisible) return
-    
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % welcomeOverlaySlides.length)
-    }, 3000)
 
-    return () => clearInterval(interval)
+    const timeout = setTimeout(() => {
+      const interval = setInterval(() => {
+        setCurrentSlide((prev) => (prev + 1) % welcomeOverlaySlides.length)
+      }, 3000)
+
+      return () => clearInterval(interval)
+    }, 3000)
+    return () => clearTimeout(timeout)
   }, [isVisible, welcomeOverlaySlides.length])
 
   // Auto-close after all slides have been shown

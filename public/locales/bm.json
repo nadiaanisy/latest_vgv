@@ -59,7 +59,15 @@
     "ERROR_LOGIN_FAILED": "Log masuk gagal",
     "ERROR_LOGIN_FAILED_MESSAGE": "Nama pengguna atau kata laluan tidak sah",
     "ERROR_ENTER_CUSTOMER_NAME": "Sila masukkan nama pelanggan",
-    "ERROR_FILL_ALL_REQUIRED_FIELDS": "Sila isi semua tempat yang diperlukan"
+    "ERROR_FILL_ALL_REQUIRED_FIELDS": "Sila isi semua tempat yang diperlukan",
+    "ERROR_FAILED_TO_DELETE_TESTIMONIAL": "Gagal memadam testimoni",
+    "ERROR_FAILED_TO_DELETE_PRODUCT": "Gagal memadam produk",
+    "ERROR_FAILED_TO_LOAD_TESTIMONIALS": "Gagal memuatkan testimoni",
+    "ERROR_FAILED_TO_LOAD_PRODUCTS": "Gagal memuatkan produk",
+    "ERROR_FAILED_TO_ADD_TESTIMONIAL": "Gagal menambah testimoni",
+    "ERROR_FAILED_TO_UPDATE_TESTIMONIAL": "Gagal mengemas kini testimoni",
+    "ERROR_FAILED_TO_ADD_PRODUCT": "Gagal menambah produk",
+    "ERROR_FAILED_TO_UPDATE_PRODUCT": "Gagal mengemas kini produk"
   },
   "COMPANY_NAME": "Veyra Global Ventures",
   "ADMINISTRATOR": "Pentadbir",
@@ -296,7 +304,11 @@
   "START_HEADLINE_SUBTITLE": "Produk basah dibina untuk keselesaan, perlindungan dan gaya supaya anda boleh meneroka lebih dalam dan tinggal lebih lama.",
   "FEATURED_PRODUCT": "Produk yang Ditampilkan",
   "OF": "dari",
-
+  "WELCOME_TOUR_TITLE": "Selamat Datang Veyra Global",
+  "FREE_SHIPPING_OVER_RM50": "Penghantaran percuma melebihi RM50", 
+  "100%_SATISFACTION_GUARANTEE": "100% jaminan kepuasan – sukakannya atau dapatkan wang anda kembali", 
+  "SPECIAL_PRICE_AGENT_BULK": "Harga istimewa untuk ejen dan pembeli pukal",
+  "CHOICE_OF_LANGUAGE": "Pilihan Bahasa",
 
   
   "ANALYTICS": "Analitik", 

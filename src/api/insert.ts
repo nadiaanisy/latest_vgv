@@ -1,3 +1,4 @@
+import i18next from 'i18next';
 import { toast } from 'sonner';
 import {
   catchError,
@@ -14,7 +15,7 @@ export const addTestimonials = async (
       .select();
 
     if (error) {
-      toast.error('Failed to add testimonials', errorToastStyle);
+      toast.error(i18next.t('MESSAGES.ERROR_FAILED_TO_ADD_TESTIMONIAL') as string, errorToastStyle);
       return
     }
 
@@ -32,7 +33,7 @@ export const addProducts = async (
       .select();
 
     if (error) {
-      toast.error('Failed to add products', errorToastStyle);
+      toast.error(i18next.t('MESSAGES.ERROR_FAILED_TO_ADD_PRODUCT') as string, errorToastStyle);
       return
     }
 
