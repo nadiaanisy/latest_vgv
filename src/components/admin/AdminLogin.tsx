@@ -66,7 +66,7 @@ export function AdminLogin({
         localStorage.setItem('veyra_admin_token', 'authenticated')
         localStorage.setItem('veyra_admin_user', username)
         toast.success(t('MESSAGES.SUCCESS_LOGIN'), {
-          description: t('PAGE.ADMIN_LOGIN.WELCOME_ADMIN_DASHBOARD_TITLE'),
+          description: t('ADMIN_WELCOME_DASHBOARD_TITLE'),
         })
         onLogin()
       } else {

@@ -244,12 +244,12 @@ export function ProductsPage({ onNavigate, selectedProductId }: ProductsPageProp
                                           />
                                         </div>
                                         <div>
-                                          <h4 className="font-medium text-lg">{t(option.name)}</h4>
+                                          <h4 className="font-medium text-lg">{getCurrentLanguage().code === 'EN' ? option.name?.EN ?? '' : option.name?.BM ?? ''}</h4>
                                           <p className="text-sm text-muted-foreground">{t(option.description)}</p>
                                           <div className="flex flex-row md:flex-col md:gap-[0.75rem] items-center md:items-stretch justify-between">
                                             <div>
-                                              <span className="text-sm text-muted-red line-through">{t(option.originalPrice)}</span>
-                                              <span className="ml-2 text-lg font-medium text-primary">{t(option.salePrice)}</span>
+                                              <span className="text-sm text-muted-red line-through">RM{t((option.originalPrice).toFixed(2))}</span>
+                                              <span className="ml-2 text-lg font-medium text-primary">RM{t((option.salePrice).toFixed(2))}</span>
                                             </div>
                                             <div className="flex flex-col gap-2">
                                               {/* <Button 

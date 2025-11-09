@@ -56,7 +56,8 @@ export const defaultUserImage = 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0c
 export const db = {
   table: {
     testimonials: 'testimonials',
-    products: 'products'
+    products: 'products',
+    productOptions: 'product_options',
   },
   query: {
     all: '*'

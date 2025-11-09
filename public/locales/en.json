@@ -67,7 +67,8 @@
     "ERROR_FAILED_TO_ADD_TESTIMONIAL": "Failed to add testimonial",
     "ERROR_FAILED_TO_UPDATE_TESTIMONIAL": "Failed to update testimonial",
     "ERROR_FAILED_TO_ADD_PRODUCT": "Failed to add product",
-    "ERROR_FAILED_TO_UPDATE_PRODUCT": "Failed to update product"
+    "ERROR_FAILED_TO_UPDATE_PRODUCT": "Failed to update product",
+    "ERROR_FAILED_TO_ADD_PRODUCT_OPTIONS": "Failed to add product options"
   },
   "COMPANY_NAME": "Veyra Global Ventures",
   "ADMINISTRATOR": "Administrator",

@@ -67,7 +67,8 @@
     "ERROR_FAILED_TO_ADD_TESTIMONIAL": "Gagal menambah testimoni",
     "ERROR_FAILED_TO_UPDATE_TESTIMONIAL": "Gagal mengemas kini testimoni",
     "ERROR_FAILED_TO_ADD_PRODUCT": "Gagal menambah produk",
-    "ERROR_FAILED_TO_UPDATE_PRODUCT": "Gagal mengemas kini produk"
+    "ERROR_FAILED_TO_UPDATE_PRODUCT": "Gagal mengemas kini produk",
+    "ERROR_FAILED_TO_ADD_PRODUCT_OPTIONS": "Gagal menambah pilihan produk"
   },
   "COMPANY_NAME": "Veyra Global Ventures",
   "ADMINISTRATOR": "Pentadbir",

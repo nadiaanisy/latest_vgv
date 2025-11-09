@@ -251,8 +251,8 @@ export function AdminProductManagement() {
       id: product.id,
       options: product.options?.map(option => ({
         name: option.name || { EN: '', BM: '' },
-        originalPrice: option.originalPrice || '',
-        salePrice: option.salePrice || '',
+        originalPrice: option.originalPrice?.toString() || '',
+        salePrice: option.salePrice?.toString() || '',
         description: option.description || { EN: '', BM: '' },
         image: option.image || '',
         shopeeLink: option.shopeeLink || ''
@@ -1359,7 +1359,7 @@ export function AdminProductManagement() {
                       <Label htmlFor="hasOptions">{t('PRODUCT_HAS_OPTIONS')}</Label>
                       <Switch
                         id="hasOptions"
-                        checked={formData.hasOptions}
+                        checked={!!formData.hasOptions}
                         onCheckedChange={(checked) => setFormData({ ...formData, hasOptions: checked })}
                         className={`relative inline-flex h-[1.15rem] w-8 items-center rounded-full transition-colors duration-200
                           ${formData.hasOptions ? 'bg-primary' : 'bg-gray-300'}
