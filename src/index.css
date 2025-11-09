@@ -5917,3 +5917,32 @@ html {
     opacity: 0;
   }
 }
+
+.watermark-background {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  background-color: #fff;
+}
+
+.watermark-background::before {
+  content: "Veyra Global Ventures";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-30deg);
+  font-size: 200px;
+  color: rgba(0, 0, 0, 0.05);
+  font-weight: bold;
+  z-index: 0;
+  pointer-events: none
+}
+
+.watermark-background p {
+  position: relative;
+  z-index: 1;
+  font-size: 18px;
+}

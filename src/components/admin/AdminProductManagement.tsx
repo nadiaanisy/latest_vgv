@@ -114,6 +114,11 @@ export function AdminProductManagement() {
 
   const [formData, setFormData] = useState<ProductFormData>(initialFormData);
   const [activeTab, setActiveTab] = useState('basic');
+  const [loading, setLoading] = useState({
+    add: false,
+    edit: false,
+    delete: false,
+  });
 
 //   /* LOAD PRODUCTS */
   useEffect(() => {
@@ -128,6 +133,7 @@ export function AdminProductManagement() {
   }, []);
 
   const handleAddProduct = async () => {
+    setLoading(prev => ({ ...prev, add: true }));
     if (!formData.name.EN ||
         !formData.name.BM ||
         !formData.category
@@ -165,9 +171,11 @@ export function AdminProductManagement() {
     toast.success(t('MESSAGES.SUCCESS_PRODUCT_ADDED'), successToastStyle)
     resetForm();
     setIsAddDialogOpen(false)
+    setLoading(prev => ({ ...prev, add: false }));
   }
 
   const handleEditProduct = async (formData: ProductFormData) => {
+    setLoading(prev => ({ ...prev, edit: true }));
     if (!editingProduct ||
         !formData.name.EN ||
         !formData.name.BM ||
@@ -207,14 +215,17 @@ export function AdminProductManagement() {
     resetForm()
     setIsEditDialogOpen(false)
     setEditingProduct(null)
+    setLoading(prev => ({ ...prev, edit: false }));
   }
 
   const handleDeleteProduct = async (id: any) => {
+    setLoading(prev => ({ ...prev, delete: true }));
     await deleteProduct(id);
     const data = await fetchProducts();
     setProducts(data);
     toast.success(t('MESSAGES.SUCCESS_PRODUCT_DELETED'), successToastStyle)
     setDeleteProductId(null)
+    setLoading(prev => ({ ...prev, delete: false }));
   }
 
   const openEditDialog = (product: Product) => {
@@ -903,7 +914,7 @@ export function AdminProductManagement() {
               <Button variant="outline" style={{ borderColor: 'rgba(0, 0, 0, 0.1)' }} onClick={() => { setIsAddDialogOpen(false); resetForm(); setActiveTab('basic'); }}>
                 {t('BUTTONS.CANCEL')}
               </Button>
-              <Button onClick={handleAddProduct}>
+              <Button onClick={handleAddProduct} disabled={loading.add}>
                 {t('BUTTONS.ADD_PRODUCT')}
               </Button>
             </DialogFooter>
@@ -1528,7 +1539,7 @@ export function AdminProductManagement() {
             <Button variant="outline" style={{ borderColor: 'rgba(0, 0, 0, 0.1)' }} onClick={() => { setIsEditDialogOpen(false); resetForm(); setActiveTab('basic');}}>
               {t('BUTTONS.CANCEL')}
             </Button>
-            <Button onClick={() => handleEditProduct(formData)}>{t('BUTTONS.SAVE')}</Button>
+            <Button onClick={() => handleEditProduct(formData)} disabled={loading.edit}>{t('BUTTONS.SAVE')}</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
@@ -1545,6 +1556,7 @@ export function AdminProductManagement() {
           <AlertDialogFooter>
             <AlertDialogCancel>Cancel</AlertDialogCancel>
             <AlertDialogAction
+              disabled={loading.delete}
               onClick={() => deleteProductId && handleDeleteProduct(deleteProductId)}
               className="bg-red-600 hover:bg-red-700"
             >

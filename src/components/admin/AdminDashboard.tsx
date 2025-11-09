@@ -98,14 +98,14 @@ export function AdminDashboard({
                       <ChevronDown className="w-3 h-3 hidden sm:block" />
                     </Button>
                   </DropdownMenuTrigger>
-                  <DropdownMenuContent align="end" className="w-48">
+                  <DropdownMenuContent align="end" className="min-w-[8rem] w-48 bg-popover text-popover-foregroundoverflow-x-hidden overflow-y-auto rounded-md border p-1 shadow-md">
                     {languages.map((language) => (
                       <DropdownMenuItem
                         key={language.code}
                         onClick={() => onLanguageChange(language.code)}
                         className="flex items-center justify-between cursor-pointer"
                       >
-                        <div className="flex items-center gap-3">
+                        <div className="focus:bg-accent focus:text-accent-foreground data-[variant=destructive]:text-destructive data-[variant=destructive]:focus:bg-destructive/10 dark:data-[variant=destructive]:focus:bg-destructive/20 data-[variant=destructive]:focus:text-destructive data-[variant=destructive]:*:[svg]:!text-destructive [&_svg:not([class*='text-'])]:text-muted-foreground relative gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden select-none data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[inset]:pl-8 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 flex items-center justify-between cursor-pointer">
                           <div>
                             <div className="font-medium">{language.name}</div>
                           </div>

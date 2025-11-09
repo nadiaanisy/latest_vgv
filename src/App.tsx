@@ -136,7 +136,7 @@ export default function App() {
 
   /* Else, show main application interface */
   return (
-    <div className="size-full min-h-screen bg-background">
+    <div className="size-full min-h-screen watermark-background">
       {/* Splash Screen */}
       {showSplash && (
         <SplashScreen onComplete={handleSplashComplete} />
