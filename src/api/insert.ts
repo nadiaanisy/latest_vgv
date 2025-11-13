@@ -29,7 +29,6 @@ export const addProducts = async (
   newProducts: any
 ) => {
   try {
-    console.log(newProducts)
     if (!newProducts.hasOptions) {
       const { data, error } = await insertHelper(db.table.products, newProducts)
         .select();

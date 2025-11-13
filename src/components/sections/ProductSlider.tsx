@@ -1,4 +1,4 @@
-import { 
+import {
   useEffect,
   useState
 } from 'react';
@@ -11,32 +11,30 @@ import { Badge } from '../ui/badge';
 import { Button } from '../ui/button';
 import { useCustomHook } from '../../utils/customHooks';
 import { ImageWithFallback } from '../../functions/imageWithFallback';
-import { fetchProducts } from '../../api/get';
 
 interface ProductSliderProps {
   onNavigate: (page: string, productId?: string) => void
+  products: any[]
 }
-export function ProductSlider({ onNavigate }: ProductSliderProps) {
+export function ProductSlider({ 
+  onNavigate,
+  products
+}: ProductSliderProps) {
   const { 
     t,
-    products,
-    setProducts,
     isLoading,
     setIsLoading,
     getCurrentLanguage
-   } = useCustomHook();
+  } = useCustomHook();
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    const loadProducts = async () => {
-      setIsLoading(true);
-      const data = await fetchProducts();
-      setProducts(data);
+    if (products && products.length > 0) {
       setIsLoading(false);
+    } else {
+      setIsLoading(true);
     }
-
-    loadProducts();
-  }, []);
+  }, [products, setIsLoading]);
 
   const nextSlide = () => {
     if (!products.length) return;
@@ -52,11 +50,39 @@ export function ProductSlider({ onNavigate }: ProductSliderProps) {
   useEffect(() => {
     const interval = setInterval(nextSlide, 5000) // Change slide every 5 seconds
     return () => clearInterval(interval)
-  }, [])
+  }, [products])
 
- const currentProduct = products[currentIndex];
+  const currentProduct = products[currentIndex];
 
-  if (!currentProduct) return <div>Loading...</div>;
+  function ProductSliderSkeleton() {
+    return (
+      <div className="relative animate-pulse">
+        <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-gray-100 to-gray-200">
+          <div className="h-[500px] w-full bg-gray-200" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/10 to-transparent" />
+        </div>
+        <div className="absolute top-[65%] flex items-end p-8">
+          <div className="bg-white/90 backdrop-blur-sm rounded-lg p-6 max-w-md shadow-lg w-[90%]">
+            <div className="flex items-center gap-2 mb-3">
+              <div className="w-16 h-4 bg-gray-300 rounded"></div>
+              <div className="w-20 h-4 bg-gray-300 rounded"></div>
+            </div>
+            <div className="w-3/4 h-5 bg-gray-300 rounded mb-3"></div>
+            <div className="w-full h-4 bg-gray-200 rounded mb-2"></div>
+            <div className="w-5/6 h-4 bg-gray-200 rounded mb-4"></div>
+            <div className="flex items-center justify-between">
+              <div className="w-16 h-4 bg-gray-300 rounded"></div>
+              <div className="w-24 h-8 bg-gray-300 rounded"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (isLoading || !products.length) {
+    return <ProductSliderSkeleton />;
+  }
 
   return (
     <div className="relative">
@@ -82,7 +108,7 @@ export function ProductSlider({ onNavigate }: ProductSliderProps) {
               {currentProduct.category ?? 'N/A'}
             </Badge>
             <Badge variant="outline" className="text-xs">
-              {(t('FEATURED_PRODUCT'))}
+              {t('FEATURED_PRODUCT')}
             </Badge>
           </div>
           
@@ -99,7 +125,7 @@ export function ProductSlider({ onNavigate }: ProductSliderProps) {
               {currentProduct.priceRange}
             </div>
             <Button 
-              size="sm" 
+              size="sm"
               className="gap-2"
               onClick={() => onNavigate('products', currentProduct.id?.toString())}
             >

@@ -13,8 +13,12 @@ import { useCustomHook } from '../../utils/customHooks';
 
 interface HomePageProps {
   onNavigate: (page: string, productId?: string) => void
+  products: any[]
 }
-export function HomePage({ onNavigate }: HomePageProps) {
+export function HomePage({
+  onNavigate,
+  products
+}: HomePageProps) {
   const { t } = useCustomHook();
   const [showWelcomeOverlay, setShowWelcomeOverlay] = useState(false);
 
@@ -55,7 +59,10 @@ export function HomePage({ onNavigate }: HomePageProps) {
 
   return (
     <main>
-      <Main onNavigate={onNavigate} />
+      <Main
+        onNavigate={onNavigate}
+        products={products}
+      />
       <VisionMission />
       <Teams />
       <TrustSignals />

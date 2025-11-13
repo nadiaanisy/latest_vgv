@@ -27,7 +27,11 @@
     "SEND_EMAIL": "Send Email",
     "ORDER_NOW_VIA_WHATSAPP": "Order Now via WhatsApp",
     "VIEW_OPTIONS": "View Options",
-    "FOLLOW_ON_INSTAGRAM": "Follow on Instagram"
+    "FOLLOW_ON_INSTAGRAM": "Follow on Instagram",
+    "CLEAR_ALL": "Clear All",
+    "CLEAR_FILTERS": "Clear Filters",
+    "PREVIOUS": "Previous",
+    "NEXT": "Next"
   },
   "PLACEHOLDERS": {
     "USERNAME": "Enter username",
@@ -45,7 +49,8 @@
     "STOCK": "0",
     "PRODUCT_DESCRIPTION_SHORT": "Enter product short description",
     "PRODUCT_DESCRIPTION_LONG": "Enter product long description",
-    "WHY_CHOOSEN": "Enter reasons why the product is chosen"
+    "WHY_CHOOSEN": "Enter reasons why the product is chosen",
+    "SEARCH_PRODUCTS_V2": "Search by product name..."
   },
   "MESSAGES": {
     "SUCCESS_LOGIN": "Login successful!",
@@ -68,7 +73,8 @@
     "ERROR_FAILED_TO_UPDATE_TESTIMONIAL": "Failed to update testimonial",
     "ERROR_FAILED_TO_ADD_PRODUCT": "Failed to add product",
     "ERROR_FAILED_TO_UPDATE_PRODUCT": "Failed to update product",
-    "ERROR_FAILED_TO_ADD_PRODUCT_OPTIONS": "Failed to add product options"
+    "ERROR_FAILED_TO_ADD_PRODUCT_OPTIONS": "Failed to add product options",
+    "ERROR_PRIC_RANGE_MUST_START_WITH_RM": "Price Range must start with 'RM'"
   },
   "COMPANY_NAME": "Veyra Global Ventures",
   "ADMINISTRATOR": "Administrator",
@@ -242,7 +248,7 @@
   "PRODUCTS_WE_ARE_SELLING_SUBTITLE": "Carefully selected products that address real market needs identified through extensive customer research and validated through our university-based selling experiments.",
   "LIMITED_TIME_OFFER": "Limited Time Offer",
   "OUR_PRODUCT_LINE": "Our Product Line",
-  "OUR_PRODUCT_LINE_SUBTITLE": "Five strategically chosen products that cover different customer segments and price points in the market.",
+  "OUR_PRODUCT_LINE_SUBTITLE": "Below are the strategically chosen products that cover different customer segments and price points in the market.",
   "OPTION_SUBTITLE": "Please choose from the available list.",
   "WHY_WE_CHOSE_THIS_PRODUCT": "Why We Chose This Product:",
   "KEY_FEATURES": "Key Features:",
@@ -310,6 +316,19 @@
   "100%_SATISFACTION_GUARANTEE": "100% satisfaction guarantee – love it or get your money back",
   "SPECIAL_PRICE_AGENT_BULK": "Special price for agents and bulk buyers",
   "CHOICE_OF_LANGUAGE": "Choice of Language",
+  "FILTER_PRODUCTS": "Filter Products",
+  "ACTIVE": "active",
+  "SEARCH_PRODUCTS": "Search Products",
+  "ALL_PRICES": "All Prices",
+  "UNDER_RM100": "Under RM100",
+  "RM100_AND_ABOVE": "RM100 and above",
+  "SHOWING": "Showing",
+  "ITEMS_PER_PAGE": "Items per page",
+  "TRY_ADJUSTING_FILTERS": "Try adjusting your filters or search query",
+  "YES": "Yes",
+  "NO": "No",
+  "ALL": "All",
+
 
   "ANALYTICS": "Analytics",
   "STATS": "Stats",

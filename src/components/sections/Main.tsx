@@ -11,8 +11,12 @@ import { handleWhatsAppOrder } from '../../functions/others';
 
 interface MainProps {
   onNavigate: (page: string, productId?: string) => void
+  products: any[]
 }
-export function Main({ onNavigate }: MainProps) {
+export function Main({
+  onNavigate,
+  products
+}: MainProps) {
   const { t } = useCustomHook();
 
   return (
@@ -49,7 +53,10 @@ export function Main({ onNavigate }: MainProps) {
 
           {/* Hero Product Slider showing Wetty product range */}
           <div className="relative">
-            <ProductSlider onNavigate={onNavigate} />
+            <ProductSlider
+              onNavigate={onNavigate}
+              products={products}
+            />
           </div>
         </div>
       </div>

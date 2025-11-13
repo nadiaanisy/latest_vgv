@@ -27,7 +27,11 @@
     "SEND_EMAIL": "Hantar Emel",
     "ORDER_NOW_VIA_WHATSAPP": "Pesan Sekarang melalui WhatsApp",
     "VIEW_OPTIONS": "Lihat Pilihan",
-    "FOLLOW_ON_INSTAGRAM": "Ikuti di Instagram"
+    "FOLLOW_ON_INSTAGRAM": "Ikuti di Instagram",
+    "CLEAR_ALL": "Padam Semua",
+    "CLEAR_FILTERS": "Padam Penapis",
+    "PREVIOUS": "Sebelumnya",
+    "NEXT": "Seterusnya"
   },
   "PLACEHOLDERS": {
     "USERNAME": "Masukkan nama pengguna",
@@ -45,7 +49,8 @@
     "STOCK": "0",
     "PRODUCT_DESCRIPTION_SHORT": "Masukkan penerangan ringkas produk",
     "PRODUCT_DESCRIPTION_LONG": "Masukkan penerangan panjang produk",
-    "WHY_CHOOSEN": "Masukkan sebab mengapa product ini dipilih"
+    "WHY_CHOOSEN": "Masukkan sebab mengapa product ini dipilih",
+    "SEARCH_PRODUCTS_V2": "Cari mengikut nama produk..."
   },
   "MESSAGES": {
     "SUCCESS_LOGIN": "Log masuk berjaya!",
@@ -68,7 +73,8 @@
     "ERROR_FAILED_TO_UPDATE_TESTIMONIAL": "Gagal mengemas kini testimoni",
     "ERROR_FAILED_TO_ADD_PRODUCT": "Gagal menambah produk",
     "ERROR_FAILED_TO_UPDATE_PRODUCT": "Gagal mengemas kini produk",
-    "ERROR_FAILED_TO_ADD_PRODUCT_OPTIONS": "Gagal menambah pilihan produk"
+    "ERROR_FAILED_TO_ADD_PRODUCT_OPTIONS": "Gagal menambah pilihan produk",
+    "ERROR_PRIC_RANGE_MUST_START_WITH_RM": "Julat Harga mesti bermula dengan 'RM'"
   },
   "COMPANY_NAME": "Veyra Global Ventures",
   "ADMINISTRATOR": "Pentadbir",
@@ -242,7 +248,7 @@
   "PRODUCTS_WE_ARE_SELLING_SUBTITLE": "Produk yang dipilih dengan teliti yang memenuhi keperluan pasaran sebenar yang dikenal pasti melalui penyelidikan pelanggan yang meluas dan disahkan melalui eksperimen jualan berasaskan universiti kami.",
   "LIMITED_TIME_OFFER": "Tawaran Masa Terhad",
   "OUR_PRODUCT_LINE": "Barisan Produk Kami", 
-  "OUR_PRODUCT_LINE_SUBTITLE": "Lima produk yang dipilih secara strategik yang meliputi segmen pelanggan yang berbeza dan titik harga dalam pasaran.",
+  "OUR_PRODUCT_LINE_SUBTITLE": "Antara produk-produk yang dipilih secara strategik yang meliputi segmen pelanggan yang berbeza dan titik harga dalam pasaran.",
   "OPTION_SUBTITLE": "Sila pilih daripada senarai yang tersedia.",
   "WHY_WE_CHOSE_THIS_PRODUCT": "Mengapa Kami Memilih Produk Ini:",
   "KEY_FEATURES": "Ciri Utama:",
@@ -310,8 +316,19 @@
   "100%_SATISFACTION_GUARANTEE": "100% jaminan kepuasan – sukakannya atau dapatkan wang anda kembali", 
   "SPECIAL_PRICE_AGENT_BULK": "Harga istimewa untuk ejen dan pembeli pukal",
   "CHOICE_OF_LANGUAGE": "Pilihan Bahasa",
+  "FILTER_PRODUCTS": "Tapis Produk",
+  "ACTIVE": "aktif",
+  "SEARCH_PRODUCTS": "Cari Produk",
+  "ALL_PRICES": "Semua Harga",
+  "UNDER_RM100": "Di bawah RM100",
+  "RM100_AND_ABOVE": "RM100 dan ke atas",
+  "SHOWING": "Memaparkan",
+  "ITEMS_PER_PAGE": "Item setiap halaman",
+  "TRY_ADJUSTING_FILTERS": "Cuba laraskan penapis atau carian anda",
+  "YES": "Ya",
+  "NO": "Tidak",
+  "ALL": "Semua",
 
-  
   "ANALYTICS": "Analitik", 
   "STATS": "Statistik",
   "PRODUCTS": "Produk",
@@ -327,7 +344,7 @@
     "2": "2 Bintang - Bawah Purata",
     "1": "1 Bintang - Lemah"
   },
-    "WHAT_WORKED_SECTION": { 
+  "WHAT_WORKED_SECTION": { 
     "TITLE_ONE": "Penceritaan Tulen di Media Sosial", 
     "DESCRIPTION_ONE": "Kami berkongsi pengalaman sebenar menggunakan produk Wetty, terutamanya menunjukkan cara mereka membantu penjaga, ibu dan keluarga dalam kehidupan seharian. Kandungan peribadi dan berkaitan ini membina kepercayaan yang kukuh dengan penonton kami.", 
     "METRICS_ONE": "Mencapai 10 ribu+ penonton dan membina kepercayaan yang kukuh.",
@@ -447,7 +464,7 @@
       "FOUR": "Pengaruh dan Kolaborator Media Sosial"
     }
   },
-  "WHAT_WE_HAVE_CUED_SECTION": { 
+  "WHAT_WE_HAVE_TRIED_SECTION": { 
     "ONE": { 
       "TITLE": "Kempen Media Sosial", 
       "PERIOD": "Januari – Mac 2025", 

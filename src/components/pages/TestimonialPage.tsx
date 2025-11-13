@@ -43,16 +43,19 @@ import { useCustomHook } from '../../utils/customHooks';
 import { ImageWithFallback } from '../../functions/imageWithFallback';
 
 interface TestimonialPageProps {
-  onNavigate: (page: string) => void
+  onNavigate: (page: string) => void;
+  testimonials: Testimonial[];
 }
-
 export function TestimonialPage({
-  onNavigate
+  onNavigate,
+  testimonials
 }: TestimonialPageProps) {
-  const { t } = useCustomHook();
+  const {
+    t,
+    setIsLoading,
+    isLoading
+  } = useCustomHook();
   const [carouselApi, setCarouselApi] = React.useState<CarouselApi>();
-  const [fetchedTestimonials, setFetchedTestimonials] = useState<Testimonial[]>([]);
-  const [loading, setLoading] = React.useState(false);
   
   useEffect(() => {
     if (!carouselApi) return
@@ -64,17 +67,13 @@ export function TestimonialPage({
     return () => clearInterval(autoSlide)
   }, [carouselApi])
 
-  // Fetch testimonials
   useEffect(() => {
-    const loadTestimonials = async () => {
-      setLoading(true);
-      const data = await fetchTestimonials();
-      setFetchedTestimonials(data);
-      setLoading(false);
-    };
-
-    loadTestimonials();
-  }, []);
+    if (testimonials && testimonials.length > 0) {
+      setIsLoading(false);
+    } else {
+      setIsLoading(true);
+    }
+  }, [testimonials, setIsLoading]);
 
   return (
     <main className="min-h-screen bg-background">
@@ -147,62 +146,88 @@ export function TestimonialPage({
             <p className="text-muted-foreground">{t('CUSTOMER_TESTIMONIALS_SUBTITLE')}</p>
           </div>
 
-          <Carousel
-            setApi={setCarouselApi}
-            opts={{
-              align: "start",
-              loop: true,
-            }}
-            className="w-full max-w-5xl mx-auto"
-          >
-            <CarouselContent className="-ml-2 md:-ml-4">
-              {fetchedTestimonials.map((testimonial) => (
-                <CarouselItem key={testimonial.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
-                  <Card className="h-full hover:shadow-lg transition-shadow">
-                    <CardHeader className="text-center pb-4">
-                      <div className="w-16 h-16 mx-auto mb-4 rounded-full overflow-hidden">
-                        <ImageWithFallback
-                          src={testimonial.avatar}
-                          alt={testimonial.name}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <CardTitle className="text-lg">{testimonial.name}</CardTitle>
-                      <div className="text-sm text-muted-foreground">
-                        {testimonial.role}
-                      </div>
-                      <div className="flex items-center justify-center gap-1 text-sm text-muted-foreground">
-                        <MapPin className="w-3 h-3" />
-                        {testimonial.location}
-                      </div>
-                    </CardHeader>
-                    
-                    <CardContent className="space-y-4">
-                      <div className="flex justify-center gap-1 mb-3">
-                        {[...Array(testimonial.rating)].map((_, i) => (
-                          <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
-                        ))}
-                      </div>
-                      
-                      <div className="relative">
-                        <Quote className="w-6 h-6 text-primary/20 absolute -top-2 -left-1" />
-                        <p className="text-muted-foreground italic pl-5 leading-relaxed">
-                          {testimonial.comment}
-                        </p>
-                      </div>
-                      
-                      <Badge variant="outline" className="text-xs">
-                        {testimonial.product}
-                      </Badge>
-                    </CardContent>
-                  </Card>
-                </CarouselItem>
+          {isLoading ? (
+            <div className="flex flex-wrap justify-center gap-4">
+              {[...Array(3)].map((_, i) => (
+                <div
+                  key={i}
+                  className="w-full md:basis-1/2 lg:basis-1/3 animate-pulse"
+                >
+                  <div className="bg-white rounded-lg shadow p-6 space-y-4">
+                    <div className="flex flex-col items-center space-y-3">
+                      <div className="w-16 h-16 rounded-full bg-gray-300" />
+                      <div className="h-4 w-24 bg-gray-300 rounded" />
+                      <div className="h-3 w-20 bg-gray-200 rounded" />
+                      <div className="h-3 w-16 bg-gray-200 rounded" />
+                    </div>
+                    <div className="flex justify-center gap-1">
+                      {[...Array(5)].map((_, j) => (
+                        <div key={j} className="w-4 h-4 bg-gray-300 rounded" />
+                      ))}
+                    </div>
+                    <div className="h-16 bg-gray-200 rounded" />
+                    <div className="h-4 w-20 bg-gray-300 rounded mx-auto" />
+                  </div>
+                </div>
               ))}
-            </CarouselContent>
-            <CarouselPrevious className="hidden md:flex" />
-            <CarouselNext className="hidden md:flex" />
-          </Carousel>
-
+            </div>
+          ) : (
+            <Carousel
+              setApi={setCarouselApi}
+              opts={{
+                align: "start",
+                loop: true,
+              }}
+              className="w-full max-w-5xl mx-auto"
+            >
+              <CarouselContent className="-ml-2 md:-ml-4">
+                {testimonials.map((testimonial) => (
+                  <CarouselItem key={testimonial.id} className="pl-2 md:pl-4 md:basis-1/2 lg:basis-1/3">
+                    <Card className="h-full hover:shadow-lg transition-shadow">
+                      <CardHeader className="text-center pb-4">
+                        <div className="w-16 h-16 mx-auto mb-4 rounded-full overflow-hidden">
+                          <ImageWithFallback
+                            src={testimonial.avatar}
+                            alt={testimonial.name}
+                            className="w-full h-full object-cover"
+                          />
+                        </div>
+                        <CardTitle className="text-lg">{testimonial.name}</CardTitle>
+                        <div className="text-sm text-muted-foreground">
+                          {testimonial.role}
+                        </div>
+                        <div className="flex items-center justify-center gap-1 text-sm text-muted-foreground">
+                          <MapPin className="w-3 h-3" />
+                          {testimonial.location}
+                        </div>
+                      </CardHeader>
+                      
+                      <CardContent className="space-y-4">
+                        <div className="flex justify-center gap-1 mb-3">
+                          {[...Array(testimonial.rating)].map((_, i) => (
+                            <Star key={i} className="w-4 h-4 fill-yellow-400 text-yellow-400" />
+                          ))}
+                        </div>
+                        
+                        <div className="relative">
+                          <Quote className="w-6 h-6 text-primary/20 absolute -top-2 -left-1" />
+                          <p className="text-muted-foreground italic pl-5 leading-relaxed">
+                            {testimonial.comment}
+                          </p>
+                        </div>
+                        
+                        <Badge variant="outline" className="text-xs">
+                          {testimonial.product}
+                        </Badge>
+                      </CardContent>
+                    </Card>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious className="hidden md:flex" />
+              <CarouselNext className="hidden md:flex" />
+            </Carousel>
+          )}
           <div className="text-center mt-8">
             <p className="text-sm text-muted-foreground">
               {t('TESTIMONIAL_CAROUSEL_INFO')}
