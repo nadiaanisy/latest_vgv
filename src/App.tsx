@@ -16,6 +16,12 @@ import { BackgroundMusic } from './components/sections/BackgroundMusic';
 import { AdminLogin } from './components/admin/AdminLogin';
 import { AdminDashboard } from './components/admin/AdminDashboard';
 
+/* API */
+import {
+  fetchProducts,
+  fetchTestimonials
+} from './api/get';
+
 export default function App() {
   const {
     currentPage,
@@ -31,6 +37,11 @@ export default function App() {
     setShowSplash,
     splashCompleted,
     setSplashCompleted,
+
+    products,
+    setProducts,
+    testimonials,
+    setTestimonials
   } = useCustomHook();
 
    /* Check for admin route and authentication on mount */
@@ -79,6 +90,19 @@ export default function App() {
     return () => window.removeEventListener('keydown', handleKeyPress)
   }, [])
 
+  /* Call API on mount */
+  useEffect(() => {
+    const loadData = async () => {
+      const productsResponse = await fetchProducts();
+      setProducts(productsResponse);
+
+      const testimonialsResponse = await fetchTestimonials();
+      setTestimonials(testimonialsResponse);
+    }
+    
+    loadData()
+  }, [])
+
   const renderPage = () => {
     switch (currentPage) {
       case 'about-us':
@@ -86,15 +110,22 @@ export default function App() {
       case 'products':
         return <ProductsPage
           onNavigate={handleNavigate}
-          selectedProductId={selectedProductId} 
+          selectedProductId={selectedProductId}
+          products={products} 
         />
       case 'testimonial':
-        return <TestimonialPage onNavigate={handleNavigate} />
+        return <TestimonialPage
+          onNavigate={handleNavigate}
+          testimonials={testimonials}
+        />
       case 'contact-us':
         return <ContactUsPage onNavigate={handleNavigate} />
       case 'home':
       default:
-        return <HomePage onNavigate={handleNavigate} />
+        return <HomePage
+          onNavigate={handleNavigate}
+          products={products}
+        />
     }
   };
 
