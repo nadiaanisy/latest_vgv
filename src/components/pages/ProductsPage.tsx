@@ -422,29 +422,18 @@ export function ProductsPage({
                                         </div>
                                         <div>
                                           <h4 className="font-medium text-lg">{getCurrentLanguage().code === 'EN' ? option.name?.EN ?? '' : option.name?.BM ?? ''}</h4>
-                                          <p className="text-sm text-muted-foreground">{t(option.description)}</p>
+                                          {option.description && (
+                                            <p className="text-sm text-muted-foreground">{getCurrentLanguage().code === 'EN' ? t(option.description.EN) ?? '' : t(option.description.BM) ?? ''}</p>
+                                          )}
                                           <div className="flex flex-row md:flex-col md:gap-[0.75rem] items-center md:items-stretch justify-between">
                                             <div>
-                                              <span className="text-sm text-muted-red line-through">RM{t((option.originalPrice).toFixed(2))}</span>
-                                              <span className="ml-2 text-lg font-medium text-primary">RM{t((option.salePrice).toFixed(2))}</span>
+                                              <span className="text-sm text-muted-red line-through">{option.originalPrice !== 'NaN' ? 'RM' + t((option.originalPrice).toFixed(2)) : 'RM0.00'}</span>
+                                              <span className="ml-2 text-lg font-medium text-primary">{option.salePrice !== 'NaN' ? 'RM' + t((option.salePrice).toFixed(2)) : 'RM0.00'}</span>
                                             </div>
                                             <div className="flex flex-col gap-2">
-                                              {/* <Button 
-                                                className="flex-1 gap-2"
-                                                onClick={() => addToCart({
-                                                  id: `${product.id}-${idx}`,
-                                                  name: `${product.name} - ${option.name}`,
-                                                  price: parseFloat(option.salePrice.replace('RM', '')),
-                                                  image: option.image
-                                                })}
-                                              >
-                                                <ShoppingCart className="w-4 h-4" />
-                                                {t('BUTTONS.ADD_TO_CART')}
-                                              </Button> */}
                                               <Button 
                                                 className="flex-1 gap-2 bg-green-600 hover:bg-green-700"
                                                 onClick={() => window.open(option.shopeeLink, "_blank")}
-                                                // onClick={() => handleWhatsAppOrder(`${product.name} - ${option.name}`, option.salePrice)}
                                               >
                                                 {t('BUTTONS.ORDER_NOW')}
                                               </Button>

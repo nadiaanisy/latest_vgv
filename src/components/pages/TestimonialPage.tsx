@@ -329,7 +329,7 @@ export function TestimonialPage({
                 <div>
                   <h3 className="font-medium text-foreground mb-3">{t('SUCCESS_FACTORS')}</h3>
                   {successFactors.map((item, index) => (
-                    <ul className="space-y-2 text-sm text-muted-foreground">
+                    <ul key={`success-${index}`} className="space-y-2 text-sm text-muted-foreground">
                       <li className="flex items-start gap-2 mb-3">
                         <CheckCircle className="w-4 h-4 text-green-600 mt-0.5" />
                           <span>
@@ -343,7 +343,7 @@ export function TestimonialPage({
                 <div>
                   <h3 className="font-medium text-foreground mb-3">{t('AREAS_OF_IMPROVEMENT')}</h3>
                   {areasImprovement.map((item, index) => (
-                    <ul className="space-y-2 text-sm text-muted-foreground">
+                    <ul key={`improvement-${index}`} className="space-y-2 text-sm text-muted-foreground">
                       <li className="flex items-start gap-2 mb-3">
                         <XCircle className="w-4 h-4 text-red-600 mt-0.5" />
                         {t(item)}

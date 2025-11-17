@@ -72,6 +72,7 @@ import { addProducts } from '../../api/insert';
 import { updateProducts } from '../../api/update';
 import { useCustomHook } from '../../utils/customHooks';
 import { deleteProduct } from '../../api/delete';
+import { ProductSkeletonGrid } from './ProductSkeletonGrid';
 
 const initialFormData: ProductFormData = {
   id: undefined,
@@ -120,7 +121,7 @@ export function AdminProductManagement() {
     delete: false,
   });
 
-//   /* LOAD PRODUCTS */
+  /* LOAD PRODUCTS */
   useEffect(() => {
     const loadProducts = async () => {
       setIsLoadingSkeleton(true);
@@ -134,12 +135,35 @@ export function AdminProductManagement() {
 
   const handleAddProduct = async () => {
     setLoading(prev => ({ ...prev, add: true }));
+
+    /* CHECKING */
     if (!formData.name.EN ||
         !formData.name.BM ||
-        !formData.category
+        !formData.category ||
+        !formData.priceRange ||
+        !formData.originalPrice ||
+        !formData.salePrice ||
+        !formData.stock ||
+        !formData.description_short.EN ||
+        !formData.description_short.BM ||
+        !formData.description_long.EN ||
+        !formData.description_long.BM ||
+        !formData.whyChosen.EN ||
+        !formData.whyChosen.BM ||
+        !formData.targetMarket?.EN?.some(item => item.trim() !== '') ||
+        !formData.targetMarket?.BM?.some(item => item.trim() !== '') ||
+        !formData.benefits?.EN?.some(item => item.trim() !== '') ||
+        !formData.benefits?.BM?.some(item => item.trim() !== '')
     ) {
       toast.error(t('MESSAGES.ERROR_FILL_ALL_REQUIRED_FIELDS'), errorToastStyle)
-      return
+      setLoading(prev => ({ ...prev, add: false }));
+      return;
+    }
+
+    if (!formData.priceRange.trim().startsWith('RM')) {
+      toast.error(t('MESSAGES.ERROR_PRIC_RANGE_MUST_START_WITH_RM'), errorToastStyle)
+      setLoading(prev => ({ ...prev, add: false }));
+      return;
     }
 
     const newProduct: Product = {
@@ -148,7 +172,7 @@ export function AdminProductManagement() {
       description_short: formData.description_short,
       description_long: formData.description_long,
       priceRange: formData.priceRange,
-      originalPrice: parseFloat((formData.originalPrice).replace(/[^0-9.]/g, '')),
+      originalPrice: parseFloat(formData.originalPrice),
       whyChosen: formData.whyChosen,
       targetMarket: {
         EN: formData.targetMarket.EN.filter(t => t.trim() !== ''),
@@ -159,39 +183,57 @@ export function AdminProductManagement() {
         BM: formData.benefits.BM.filter(b => b.trim() !== '')
       },
       hasOptions: formData.hasOptions,
-      salePrice: formData.salePrice ? parseFloat((formData.salePrice).replace(/[^0-9.]/g, '')) : 0,
+      salePrice: formData.salePrice ? parseFloat(formData.salePrice) : 0,
       shopeeLink: formData.shopeeLink || undefined,
       stock: formData.stock ? parseInt(formData.stock) : undefined,
       image: formData.image || '',
       options: formData.hasOptions ? formData.options : undefined
     }
 
-    const data: any = await addProducts(newProduct);
-    setProducts((prev: any) => [data[0], ...prev]);
-    toast.success(t('MESSAGES.SUCCESS_PRODUCT_ADDED'), successToastStyle)
+    await addProducts(newProduct);
+    const data = await fetchProducts();
+    setProducts(data);
+    setIsAddDialogOpen(false);
     resetForm();
-    setIsAddDialogOpen(false)
+    setActiveTab('basic');
+    toast.success(t('MESSAGES.SUCCESS_PRODUCT_ADDED'), successToastStyle)
     setLoading(prev => ({ ...prev, add: false }));
   }
 
   const handleEditProduct = async (formData: ProductFormData) => {
     setLoading(prev => ({ ...prev, edit: true }));
+
     if (!editingProduct ||
         !formData.name.EN ||
         !formData.name.BM ||
-        !formData.category
+        !formData.category ||
+        !formData.priceRange ||
+        !formData.originalPrice ||
+        !formData.salePrice ||
+        !formData.stock ||
+        !formData.description_short.EN ||
+        !formData.description_short.BM ||
+        !formData.description_long.EN ||
+        !formData.description_long.BM ||
+        !formData.whyChosen.EN ||
+        !formData.whyChosen.BM ||
+        !formData.targetMarket?.EN?.some(item => item.trim() !== '') ||
+        !formData.targetMarket?.BM?.some(item => item.trim() !== '') ||
+        !formData.benefits?.EN?.some(item => item.trim() !== '') ||
+        !formData.benefits?.BM?.some(item => item.trim() !== '')
     ) {
       toast.error(t('MESSAGES.ERROR_FILL_ALL_REQUIRED_FIELDS'), errorToastStyle)
-      return
+      setLoading(prev => ({ ...prev, add: false }));
+      return;
     }
 
-    const updatedProducts = {
+    const updatedProducts: Product = {
       name: formData.name,
       category: formData.category,
       description_short: formData.description_short,
       description_long: formData.description_long,
       priceRange: formData.priceRange,
-      originalPrice: formData.originalPrice,
+      originalPrice: parseFloat(formData.originalPrice),
       whyChosen: formData.whyChosen,
       targetMarket: {
         EN: formData.targetMarket.EN.filter(t => t.trim() !== ''),
@@ -202,19 +244,22 @@ export function AdminProductManagement() {
         BM: formData.benefits.BM.filter(b => b.trim() !== '')
       },
       hasOptions: formData.hasOptions,
-      salePrice: formData.salePrice ? parseFloat(formData.salePrice) : undefined,
+      salePrice: formData.salePrice ? parseFloat(formData.salePrice) : 0,
       shopeeLink: formData.shopeeLink || undefined,
       stock: formData.stock ? parseInt(formData.stock) : undefined,
-      image: formData.image,
+      image: formData.image || '',
       options: formData.hasOptions ? formData.options : undefined
     }
 
-    const data: any = await updateProducts(updatedProducts, formData.id);
+    await updateProducts(updatedProducts, formData.id);
+
+    const data = await fetchProducts();
     setProducts(data);
-    toast.success(t('MESSAGES.SUCCESS_PRODUCT_UPDATED'), successToastStyle)
+  
     resetForm()
-    setIsEditDialogOpen(false)
-    setEditingProduct(null)
+    setIsEditDialogOpen(false);
+    setEditingProduct(null);
+    setActiveTab('basic');
     setLoading(prev => ({ ...prev, edit: false }));
   }
 
@@ -261,6 +306,7 @@ export function AdminProductManagement() {
       image: product.image,
       id: product.id,
       options: product.options?.map(option => ({
+        id: option.id,
         name: option.name || { EN: '', BM: '' },
         originalPrice: option.originalPrice?.toString() || '',
         salePrice: option.salePrice?.toString() || '',
@@ -382,17 +428,17 @@ export function AdminProductManagement() {
     }
   }
 
- const filteredProducts = products.filter(product => {
-    const query = searchQuery.toLowerCase();
+  const filteredProducts = products.filter((product: any) => {
+    const query = searchQuery ? searchQuery.toLowerCase() : '';
 
     // Handle case where name or category might be missing
-    const nameEn = product.name?.EN?.toLowerCase() || '';
-    const nameBm = product.name?.BM?.toLowerCase() || '';
+    const nameEN = product.name?.EN?.toLowerCase() || '';
+    const nameBM = product.name?.BM?.toLowerCase() || '';
     const category = product.category?.toLowerCase() || '';
 
     return (
-      nameEn.includes(query) ||
-      nameBm.includes(query) ||
+      nameEN.includes(query) ||
+      nameBM.includes(query) ||
       category.includes(query)
     );
   });
@@ -522,7 +568,7 @@ export function AdminProductManagement() {
                   </div>
                   <div className="grid grid-cols-3 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="priceRange">{t('PRICE_RANGE')}</Label>
+                      <Label htmlFor="priceRange">{t('PRICE_RANGE')} *</Label>
                       <Input
                         id="priceRange"
                         value={formData.priceRange}
@@ -531,29 +577,49 @@ export function AdminProductManagement() {
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="originalPrice">{t('ORIGINAL_PRICE')}</Label>
+                      <Label htmlFor="originalPrice">{t('ORIGINAL_PRICE')} *</Label>
                       <Input
                         id="originalPrice"
+                        type="number"
+                        step="0.01"
                         value={formData.originalPrice}
-                        onChange={(e) => setFormData({ ...formData, originalPrice: e.target.value })}
-                        placeholder="RM6.90"
+                        onChange={(e) => {
+                          let value = e.target.value;
+                          if (value.includes('.')) {
+                            const [intPart, decPart] = value.split('.');
+                            if (decPart.length > 2) {
+                              value = `${intPart}.${decPart.slice(0, 2)}`;
+                            }
+                          }
+                          setFormData({ ...formData, originalPrice: value })
+                        }}
+                        placeholder="0.00"
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="salePrice">{t('SALE_PRICE')}</Label>
+                      <Label htmlFor="salePrice">{t('SALE_PRICE')} *</Label>
                       <Input
                         id="salePrice"
                         type="number"
                         step="0.01"
                         value={formData.salePrice}
-                        onChange={(e) => setFormData({ ...formData, salePrice: e.target.value })}
+                        onChange={(e) => {
+                          let value = e.target.value;
+                          if (value.includes('.')) {
+                            const [intPart, decPart] = value.split('.');
+                            if (decPart.length > 2) {
+                              value = `${intPart}.${decPart.slice(0, 2)}`;
+                            }
+                          }
+                          setFormData({ ...formData, salePrice: value })
+                        }}
                         placeholder="0.00"
                       />
                     </div>
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="stock">{t('STOCK')}</Label>
+                      <Label htmlFor="stock">{t('STOCK')} *</Label>
                       <Input
                         id="stock"
                         type="number"
@@ -576,7 +642,7 @@ export function AdminProductManagement() {
 
                 <TabsContent value="details" className="space-y-4 mt-4">
                   <div className="space-y-2">
-                    <Label htmlFor="description_short">{t('PRODUCT_DESCRIPTION_SHORT')}</Label>
+                    <Label htmlFor="description_short">{t('PRODUCT_DESCRIPTION_SHORT')} *</Label>
                     <div className="grid grid-cols-2 gap-3">
                       <div className="space-y-2">
                         <div className="text-sm text-muted-foreground">English</div>
@@ -599,7 +665,7 @@ export function AdminProductManagement() {
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="description_long">{t('PRODUCT_DESCRIPTION_LONG')}</Label>
+                    <Label htmlFor="description_long">{t('PRODUCT_DESCRIPTION_LONG')} *</Label>
                     <div className="grid grid-cols-2 gap-3">
                       <div className="space-y-2">
                         <div className="text-sm text-muted-foreground">English</div>
@@ -622,7 +688,7 @@ export function AdminProductManagement() {
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="whyChosen">{t('WHY_CHOOSEN')}</Label>
+                    <Label htmlFor="whyChosen">{t('WHY_CHOOSEN')} *</Label>
                     <div className="grid grid-cols-2 gap-3">
                       <div className="space-y-2">
                         <div className="text-sm text-muted-foreground">English</div>
@@ -649,7 +715,7 @@ export function AdminProductManagement() {
                 <TabsContent value="features" className="space-y-4 mt-4">
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
-                      <Label>{t('TARGET_MARKET')}</Label>
+                      <Label>{t('TARGET_MARKET')} *</Label>
                       <Button style={{ borderColor: 'rgba(0, 0, 0, 0.1)' }} type="button" size="sm" variant="outline" onClick={addTargetMarket}>
                         <Plus className="w-4 h-4 mr-1" />
                         {t('BUTTONS.ADD')}
@@ -682,10 +748,10 @@ export function AdminProductManagement() {
                               size="sm"
                               variant="outline"
                               onClick={() => removeTargetMarket(index)}
-                              className="w-full"
+                              className="w-full bg-red-500 text-white"
                             >
                               <X className="w-4 h-4 mr-1" />
-                              Remove
+                              {t('BUTTONS.REMOVE')}
                             </Button>
                           )}
                         </div>
@@ -695,7 +761,7 @@ export function AdminProductManagement() {
 
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
-                      <Label>{t('BENEFITS')}</Label>
+                      <Label>{t('BENEFITS')} *</Label>
                       <Button style={{ borderColor: 'rgba(0, 0, 0, 0.1)' }} type="button" size="sm" variant="outline" onClick={addBenefit}>
                         <Plus className="w-4 h-4 mr-1" />
                         {t('BUTTONS.ADD')}
@@ -728,10 +794,10 @@ export function AdminProductManagement() {
                               size="sm"
                               variant="outline"
                               onClick={() => removeBenefit(index)}
-                              className="w-full"
+                              className="w-full bg-red-500 text-white"
                             >
                               <X className="w-4 h-4 mr-1" />
-                              Remove
+                              {t('BUTTONS.REMOVE')}
                             </Button>
                           )}
                         </div>
@@ -771,7 +837,7 @@ export function AdminProductManagement() {
                     <Card key={index} className="border-2">
                       <CardHeader className="pb-3">
                         <div className="flex items-center justify-between">
-                          <CardTitle className="text-base">Option {index + 1}</CardTitle>
+                          <CardTitle className="text-base">{t('TAB_OPTIONS')} {index + 1}</CardTitle>
                           <Button
                             type="button"
                             size="sm"
@@ -785,7 +851,7 @@ export function AdminProductManagement() {
                       </CardHeader>
                       <CardContent className="space-y-3">
                         <div className="space-y-3">
-                          <Label>Option Name (Bilingual)</Label>
+                          <Label>{t('OPTION_NAME')} (Bilingual)</Label>
                           <div className="grid grid-cols-2 gap-3">
                             <div className="space-y-2">
                               <div className="text-sm text-muted-foreground">English</div>
@@ -807,19 +873,41 @@ export function AdminProductManagement() {
                         </div>
                         <div className="grid grid-cols-2 gap-3">
                           <div className="space-y-2">
-                            <Label>Original Price</Label>
+                            <Label>{t('ORIGINAL_PRICE')}</Label>
                             <Input
+                              type="number"
+                              step="0.01"
                               value={option.originalPrice}
-                              onChange={(e) => updateOption(index, 'originalPrice', e.target.value)}
-                              placeholder="RM6.90"
+                              onChange={(e) =>{
+                                let value = e.target.value;
+                                if (value.includes('.')) {
+                                  const [intPart, decPart] = value.split('.');
+                                  if (decPart.length > 2) {
+                                    value = `${intPart}.${decPart.slice(0, 2)}`;
+                                  }
+                                }
+                                updateOption(index, 'originalPrice', value)
+                              }}
+                              placeholder="0.00"
                             />
                           </div>
                           <div className="space-y-2">
-                            <Label>Sale Price</Label>
+                            <Label>{t('SALE_PRICE')}</Label>
                             <Input
+                              type="number"
+                              step="0.01"
                               value={option.salePrice}
-                              onChange={(e) => updateOption(index, 'salePrice', e.target.value)}
-                              placeholder="RM3.90"
+                              onChange={(e) => {
+                                let value = e.target.value;
+                                if (value.includes('.')) {
+                                  const [intPart, decPart] = value.split('.');
+                                  if (decPart.length > 2) {
+                                    value = `${intPart}.${decPart.slice(0, 2)}`;
+                                  }
+                                }
+                                updateOption(index, 'salePrice', value)
+                              }}
+                              placeholder="0.00"
                             />
                           </div>
                         </div>
@@ -883,7 +971,7 @@ export function AdminProductManagement() {
                                 onClick={() => document.getElementById(`optionImageUpload-${index}`)?.click()}
                               >
                                 <Upload className="w-4 h-4 mr-2" />
-                                Upload
+                                {t('BUTTONS.UPLOAD')}
                               </Button>
                             </div>
                             <div className="text-sm text-muted-foreground">
@@ -911,10 +999,18 @@ export function AdminProductManagement() {
               </Tabs>
             </div>
             <DialogFooter>
-              <Button variant="outline" style={{ borderColor: 'rgba(0, 0, 0, 0.1)' }} onClick={() => { setIsAddDialogOpen(false); resetForm(); setActiveTab('basic'); }}>
+              <Button
+                variant="outline"
+                style={{ borderColor: 'rgba(0, 0, 0, 0.1)' }}
+                disabled={loading.add}
+                onClick={() => { setIsAddDialogOpen(false); resetForm(); setActiveTab('basic'); }}
+              >
                 {t('BUTTONS.CANCEL')}
               </Button>
-              <Button onClick={handleAddProduct} disabled={loading.add}>
+              <Button
+                onClick={handleAddProduct}
+                disabled={loading.add}
+              >
                 {t('BUTTONS.ADD_PRODUCT')}
               </Button>
             </DialogFooter>
@@ -955,110 +1051,123 @@ export function AdminProductManagement() {
       </div>
 
       {/* Products Table */}
-      <Card className="border-2">
-        <CardHeader>
-          <CardTitle className="text-foreground">{t('PRODUCT_LIST_TITLE')}</CardTitle>
-          <CardDescription>{t('PRODUCT_LIST_SUBTITLE')}</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <div className="rounded-md border">
-            <Table>
-              <TableHeader>
-                <TableRow>
-                  <TableHead>{t('PRODUCT')}</TableHead>
-                  <TableHead>{t('CATEGORY')}</TableHead>
-                  <TableHead>{t('PRICE_RANGE')}</TableHead>
-                  <TableHead>{t('STOCK')}</TableHead>
-                  <TableHead>{t('OPTIONS')}</TableHead>
-                  <TableHead className="text-right">{t('ACTIONS')}</TableHead>
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {filteredProducts.length === 0 ? (
+      {isLoadingSkeleton ? (
+        <ProductSkeletonGrid />
+      ) : (
+        <Card className="border-2">
+          <CardHeader>
+            <CardTitle className="text-foreground">{t('PRODUCT_LIST_TITLE')}</CardTitle>
+            <CardDescription>{t('PRODUCT_LIST_SUBTITLE')}</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="rounded-md border">
+              <Table>
+                <TableHeader>
                   <TableRow>
-                    <TableCell colSpan={6} className="text-center py-8 text-muted-foreground">
-                      {t('NO_PRODUCTS_FOUND')}
-                    </TableCell>
+                    <TableHead>{t('PRODUCT')}</TableHead>
+                    <TableHead>{t('CATEGORY')}</TableHead>
+                    <TableHead>{t('PRICE_RANGE')}</TableHead>
+                    <TableHead>{t('STOCK')}</TableHead>
+                    <TableHead>{t('OPTIONS')}</TableHead>
+                    <TableHead className="text-right">{t('ACTIONS')}</TableHead>
                   </TableRow>
-                ) : (
-                  filteredProducts.map((product) => (
-                    <TableRow key={product.id}>
-                      <TableCell>
-                        <div className="flex items-center gap-3">
-                          {product.image && (
-                            <img
-                              src={product.image}
-                              alt={getCurrentLanguage().code === 'EN' ? product.name.EN : product.name.BM}
-                              className="w-12 h-12 rounded-lg object-cover"
-                            />
-                          )}
-                          <div>
-                            <p className="font-medium text-foreground">{getCurrentLanguage().code === 'EN' ? product.name.EN : product.name.BM}</p>
-                          </div>
-                        </div>
-                      </TableCell>
-                      <TableCell>
-                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary">
-                          {product.category}
-                        </span>
-                      </TableCell>
-                      <TableCell className="font-medium text-foreground">
-                        {product.priceRange || product.originalPrice}
-                      </TableCell>
-                      <TableCell>
-                        <span className={`${(product.stock || 0) < 20 ? 'text-red-600' : 'text-foreground'}`}>
-                          {product.stock || 'N/A'}
-                        </span>
-                      </TableCell>
-                      <TableCell>
-                        {product.hasOptions ? (
-                          <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">
-                            {product.options?.length || 0} {t('OPTION')}
-                          </span>
-                        ) : (
-                          <span className="text-xs text-muted-foreground">{t('NO_OPTIONS')}</span>
-                        )}
-                      </TableCell>
-                      <TableCell className="text-right">
-                        <div className="flex items-center justify-left gap-2">
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            onClick={() => openEditDialog(product)}
-                          >
-                            <Pencil className="w-4 h-4" />
-                          </Button>
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            onClick={() => setDeleteProductId(product.id?.toString() || null)}
-                            className="text-red-600 hover:text-red-700 hover:bg-red-50"
-                          >
-                            <Trash2 className="w-4 h-4" />
-                          </Button>
-                        </div>
+                </TableHeader>
+                <TableBody>
+                  {filteredProducts.length === 0 ? (
+                    <TableRow>
+                      <TableCell colSpan={6} className="text-center py-8 text-muted-foreground">
+                        {t('NO_PRODUCTS_FOUND')}
                       </TableCell>
                     </TableRow>
-                  ))
-                )}
-              </TableBody>
-            </Table>
-          </div>
-        </CardContent>
-      </Card>
+                  ) : (
+                    filteredProducts.map((product) => (
+                      <TableRow key={product.id}>
+                        <TableCell>
+                          <div className="flex items-center gap-3">
+                            {product.image && (
+                              <img
+                                src={product.image}
+                                alt={getCurrentLanguage().code === 'EN' ? product.name.EN : product.name.BM}
+                                className="w-12 h-12 rounded-lg object-cover"
+                              />
+                            )}
+                            <div>
+                              <p className="font-medium text-foreground">{getCurrentLanguage().code === 'EN' ? product.name.EN : product.name.BM}</p>
+                            </div>
+                          </div>
+                        </TableCell>
+                        <TableCell>
+                          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-primary/10 text-primary">
+                            {product.category}
+                          </span>
+                        </TableCell>
+                        <TableCell className="font-medium text-foreground">
+                          {product.priceRange}
+                        </TableCell>
+                        <TableCell>
+                          <span className={`${(product.stock || 0) < 20 ? 'text-red-600' : 'text-foreground'}`}>
+                            {product.stock || 'N/A'}
+                          </span>
+                        </TableCell>
+                        <TableCell>
+                          {product.hasOptions ? (
+                            <span className="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">
+                              {product.options?.length || 0} {t('OPTION')}
+                            </span>
+                          ) : (
+                            <span className="text-xs text-muted-foreground">{t('NO_OPTIONS')}</span>
+                          )}
+                        </TableCell>
+                        <TableCell className="text-right">
+                          <div className="flex items-center justify-left gap-2">
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              onClick={() => openEditDialog(product)}
+                            >
+                              <Pencil className="w-4 h-4" />
+                            </Button>
+                            <Button
+                              variant="ghost"
+                              size="sm"
+                              onClick={() => setDeleteProductId(product.id?.toString() || null)}
+                              className="text-red-600 hover:text-red-700 hover:bg-red-50"
+                            >
+                              <Trash2 className="w-4 h-4" />
+                            </Button>
+                          </div>
+                        </TableCell>
+                      </TableRow>
+                    ))
+                  )}
+                </TableBody>
+              </Table>
+            </div>
+          </CardContent>
+        </Card>
+      )}
 
       {/* Edit Dialog */}
-      <Dialog open={isEditDialogOpen} onOpenChange={setIsEditDialogOpen}>
-        <DialogContent className="max-w-3xl max-h-[90vh] overflow-y-auto">
+      <Dialog
+        open={isEditDialogOpen}
+        onOpenChange={setIsEditDialogOpen}
+      >
+        <DialogContent aria-describedby={undefined}
+          onPointerDownOutside={(e) => e.preventDefault()}
+          onInteractOutside={(e) => e.preventDefault()}
+          className="max-w-3xl max-h-[90vh] overflow-y-auto"
+        >
           <DialogHeader>
             <DialogTitle>{t('EDIT_PRODUCT_TITLE')}</DialogTitle>
-            <DialogDescription>
-              {t('EDIT_PRODUCT_SUBTITLE')}
-            </DialogDescription>
+            <DialogDescription>{t('EDIT_PRODUCT_SUBTITLE')}</DialogDescription>
           </DialogHeader>
           <div className="py-4">
             <div className="py-4">
-              <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+              <Tabs
+                value={activeTab}
+                onValueChange={setActiveTab}
+                className="w-full"
+              >
                 {tabsStructure}
 
                 <TabsContent value="basic" className="space-y-4 mt-4">
@@ -1146,7 +1255,7 @@ export function AdminProductManagement() {
                   </div>
                   <div className="grid grid-cols-3 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="priceRange">{t('PRICE_RANGE')}</Label>
+                      <Label htmlFor="priceRange">{t('PRICE_RANGE')} *</Label>
                       <Input
                         id="priceRange"
                         value={formData.priceRange}
@@ -1155,7 +1264,7 @@ export function AdminProductManagement() {
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="originalPrice">{t('ORIGINAL_PRICE')}</Label>
+                      <Label htmlFor="originalPrice">{t('ORIGINAL_PRICE')} *</Label>
                       <Input
                         id="originalPrice"
                         value={formData.originalPrice}
@@ -1164,7 +1273,7 @@ export function AdminProductManagement() {
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="salePrice">{t('SALE_PRICE')}</Label>
+                      <Label htmlFor="salePrice">{t('SALE_PRICE')} *</Label>
                       <Input
                         id="salePrice"
                         type="number"
@@ -1177,7 +1286,7 @@ export function AdminProductManagement() {
                   </div>
                   <div className="grid grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="stock">{t('STOCK')}</Label>
+                      <Label htmlFor="stock">{t('STOCK')} *</Label>
                       <Input
                         id="stock"
                         type="number"
@@ -1200,7 +1309,7 @@ export function AdminProductManagement() {
 
                 <TabsContent value="details" className="space-y-4 mt-4">
                   <div className="space-y-2">
-                    <Label htmlFor="description_short">{t('PRODUCT_DESCRIPTION_SHORT')}</Label>
+                    <Label htmlFor="description_short">{t('PRODUCT_DESCRIPTION_SHORT')} *</Label>
                     <div className="grid grid-cols-2 gap-3">
                       <div className="space-y-2">
                         <div className="text-sm text-muted-foreground">English</div>
@@ -1223,7 +1332,7 @@ export function AdminProductManagement() {
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="description_long">{t('PRODUCT_DESCRIPTION_LONG')}</Label>
+                    <Label htmlFor="description_long">{t('PRODUCT_DESCRIPTION_LONG')} *</Label>
                     <div className="grid grid-cols-2 gap-3">
                       <div className="space-y-2">
                         <div className="text-sm text-muted-foreground">English</div>
@@ -1246,7 +1355,7 @@ export function AdminProductManagement() {
                     </div>
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="whyChosen">{t('WHY_CHOOSEN')}</Label>
+                    <Label htmlFor="whyChosen">{t('WHY_CHOOSEN')} *</Label>
                     <div className="grid grid-cols-2 gap-3">
                       <div className="space-y-2">
                         <div className="text-sm text-muted-foreground">English</div>
@@ -1274,7 +1383,13 @@ export function AdminProductManagement() {
                   <div className="space-y-3">
                     <div className="flex items-center justify-between">
                       <Label>{t('TARGET_MARKET')}</Label>
-                      <Button style={{ borderColor: 'rgba(0, 0, 0, 0.1)' }} type="button" size="sm" variant="outline" onClick={addTargetMarket}>
+                      <Button
+                        style={{ borderColor: 'rgba(0, 0, 0, 0.1)' }}
+                        type="button"
+                        size="sm"
+                        variant="outline"
+                        onClick={addTargetMarket}
+                      >
                         <Plus className="w-4 h-4 mr-1" />
                         {t('BUTTONS.ADD')}
                       </Button>
@@ -1306,10 +1421,10 @@ export function AdminProductManagement() {
                               size="sm"
                               variant="outline"
                               onClick={() => removeTargetMarket(index)}
-                              className="w-full"
+                              className="w-full bg-red-500 text-white"
                             >
                               <X className="w-4 h-4 mr-1" />
-                              Remove
+                              {t('BUTTONS.REMOVE')}
                             </Button>
                           )}
                         </div>
@@ -1352,10 +1467,10 @@ export function AdminProductManagement() {
                               size="sm"
                               variant="outline"
                               onClick={() => removeBenefit(index)}
-                              className="w-full"
+                              className="w-full bg-red-500 text-white"
                             >
                               <X className="w-4 h-4 mr-1" />
-                              Remove
+                              {t('BUTTONS.REMOVE')}
                             </Button>
                           )}
                         </div>
@@ -1378,7 +1493,13 @@ export function AdminProductManagement() {
                       />
                     </div>
                     {formData.hasOptions && (
-                      <Button type="button" size="sm" variant="outline" onClick={addOption}>
+                      <Button
+                        style={{ borderColor: 'rgba(0, 0, 0, 0.1)' }}
+                        type="button"
+                        size="sm"
+                        variant="outline"
+                        onClick={addOption}
+                      >
                         <Plus className="w-4 h-4 mr-1" />
                         {t('BUTTONS.ADD')}
                       </Button>
@@ -1409,7 +1530,7 @@ export function AdminProductManagement() {
                       </CardHeader>
                       <CardContent className="space-y-3">
                         <div className="space-y-3">
-                          <Label>Option Name (Bilingual)</Label>
+                          <Label>{t('OPTION_NAME')} (Bilingual)</Label>
                           <div className="grid grid-cols-2 gap-3">
                             <div className="space-y-2">
                               <div className="text-sm text-muted-foreground">English</div>
@@ -1431,7 +1552,7 @@ export function AdminProductManagement() {
                         </div>
                         <div className="grid grid-cols-2 gap-3">
                           <div className="space-y-2">
-                            <Label>Original Price</Label>
+                            <Label>{t('ORIGINAL_PRICE')}</Label>
                             <Input
                               value={option.originalPrice}
                               onChange={(e) => updateOption(index, 'originalPrice', e.target.value)}
@@ -1439,7 +1560,7 @@ export function AdminProductManagement() {
                             />
                           </div>
                           <div className="space-y-2">
-                            <Label>Sale Price</Label>
+                            <Label>{t('SALE_PRICE')}</Label>
                             <Input
                               value={option.salePrice}
                               onChange={(e) => updateOption(index, 'salePrice', e.target.value)}
@@ -1448,7 +1569,7 @@ export function AdminProductManagement() {
                           </div>
                         </div>
                         <div className="space-y-3">
-                          <Label>Description (Bilingual)</Label>
+                          <Label>{t('DESCRIPTION')} (Bilingual)</Label>
                           <div className="grid grid-cols-2 gap-3">
                             <div className="space-y-2">
                               <div className="text-sm text-muted-foreground">English</div>
@@ -1471,7 +1592,7 @@ export function AdminProductManagement() {
                           </div>
                         </div>
                         <div className="space-y-2">
-                          <Label>Option Image</Label>
+                          <Label>{t('OPTION_IMAGE')}</Label>
                           <div className="grid gap-3">
                             {option.image && (
                               <div className="relative w-full h-32 rounded-lg border-2 border-dashed border-border overflow-hidden">
@@ -1507,11 +1628,11 @@ export function AdminProductManagement() {
                                 onClick={() => document.getElementById(`optionImageUpload-${index}`)?.click()}
                               >
                                 <Upload className="w-4 h-4 mr-2" />
-                                Upload
+                                {t('BUTTONS.UPLOAD')}
                               </Button>
                             </div>
                             <div className="text-sm text-muted-foreground">
-                              Or enter image URL:
+                              {t('OPTION_IMAGE_URL')}
                             </div>
                             <Input
                               value={option.image.startsWith('data:') ? '' : option.image}
@@ -1521,7 +1642,7 @@ export function AdminProductManagement() {
                           </div>
                         </div>
                         <div className="space-y-2">
-                          <Label>Shopee Link</Label>
+                          <Label>{t('SHOPEE_LINK')}</Label>
                           <Input
                             value={option.shopeeLink}
                             onChange={(e) => updateOption(index, 'shopeeLink', e.target.value)}
@@ -1536,32 +1657,58 @@ export function AdminProductManagement() {
             </div>
           </div>
           <DialogFooter>
-            <Button variant="outline" style={{ borderColor: 'rgba(0, 0, 0, 0.1)' }} onClick={() => { setIsEditDialogOpen(false); resetForm(); setActiveTab('basic');}}>
+            <Button
+              variant="outline"
+              style={{ borderColor: 'rgba(0, 0, 0, 0.1)' }}
+              disabled={loading.edit}
+              onClick={() => { setIsEditDialogOpen(false); resetForm(); setActiveTab('basic')}}
+            >
               {t('BUTTONS.CANCEL')}
             </Button>
-            <Button onClick={() => handleEditProduct(formData)} disabled={loading.edit}>{t('BUTTONS.SAVE')}</Button>
+            <Button
+              onClick={() => handleEditProduct(formData)}
+              disabled={loading.edit}
+            >
+              {t('BUTTONS.UPDATE')}
+            </Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
 
       {/* Delete Confirmation Dialog */}
-      <AlertDialog open={!!deleteProductId} onOpenChange={() => setDeleteProductId(null)}>
+      <AlertDialog
+        open={!!deleteProductId}
+        onOpenChange={
+          (open) => {
+            if (!loading.delete && !open) {
+              setDeleteProductId(null);
+            }
+          }
+        }
+      >
         <AlertDialogContent>
           <AlertDialogHeader>
             <AlertDialogTitle>{t('ARE_YOU_SURE_PRODUCT_DELETION_TITLE')}</AlertDialogTitle>
-            <AlertDialogDescription>
-              {t('ARE_YOU_SURE_PRODUCT_DELETION_DESCRIPTION')}
-            </AlertDialogDescription>
+            <AlertDialogDescription>{t('ARE_YOU_SURE_PRODUCT_DELETION_DESCRIPTION')}</AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction
+            <AlertDialogCancel
               disabled={loading.delete}
-              onClick={() => deleteProductId && handleDeleteProduct(deleteProductId)}
-              className="bg-red-600 hover:bg-red-700"
+              style={{ borderColor: 'rgba(0, 0, 0, 0.1)' }}
             >
-              Delete
-            </AlertDialogAction>
+              {t('BUTTONS.CANCEL')}
+            </AlertDialogCancel>
+            <Button
+              disabled={loading.delete}
+              onClick={() => {
+                if (deleteProductId) {
+                  handleDeleteProduct(deleteProductId);
+                }
+              }}
+              className={loading.delete ? "bg-red-600 opacity-50 cursor-not-allowed text-white px-4 py-2 rounded-md" : "bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-md"}
+            >
+              {loading.delete ? t('BUTTONS.DELETING') : t('BUTTONS.DELETE')}
+            </Button>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>

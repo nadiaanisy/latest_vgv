@@ -93,15 +93,19 @@ export default function App() {
   /* Call API on mount */
   useEffect(() => {
     const loadData = async () => {
-      const productsResponse = await fetchProducts();
-      setProducts(productsResponse);
+      // Fetch products only when on home/products
+      if (currentPage === 'home' || currentPage === 'products') {
+        const productsResponse = await fetchProducts();
+        setProducts(productsResponse);
+      }
 
-      const testimonialsResponse = await fetchTestimonials();
-      setTestimonials(testimonialsResponse);
+      if (currentPage === 'testimonial') {
+        const testimonialsResponse = await fetchTestimonials();
+        setTestimonials(testimonialsResponse);
+      }
     }
-    
     loadData()
-  }, [])
+  }, [currentPage, setProducts, setTestimonials]);
 
   const renderPage = () => {
     switch (currentPage) {

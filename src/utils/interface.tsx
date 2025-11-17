@@ -52,6 +52,7 @@ export interface Product {
   stock?: number
   id?: number
   options?: {
+    id?: number
     name?: {
       EN: string
       BM: string

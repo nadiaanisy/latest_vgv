@@ -14,6 +14,7 @@
     "SAVE": "Simpan",
     "UPDATE": "Kemaskini",
     "DELETE": "Padam",
+    "DELETING": "Memadam...",
     "ADD": "Tambah",
     "UPLOAD": "Muat Naik",
     "ADD_TESTIMONIAL": "Tambah Testimoni",
@@ -31,7 +32,8 @@
     "CLEAR_ALL": "Padam Semua",
     "CLEAR_FILTERS": "Padam Penapis",
     "PREVIOUS": "Sebelumnya",
-    "NEXT": "Seterusnya"
+    "NEXT": "Seterusnya",
+    "REMOVE": "Padam"
   },
   "PLACEHOLDERS": {
     "USERNAME": "Masukkan nama pengguna",
@@ -158,7 +160,7 @@
   "STOCK": "Stok",
   "PRODUCT_DESCRIPTION_SHORT": "Penerangan Ringkas Produk",
   "PRODUCT_DESCRIPTION_LONG": "Penerangan Panjang Produk",
-  "WHY_CHOSEN": "Mengapa Dipilih",
+  "WHY_CHOOSEN": "Mengapa Dipilih",
   "TARGET_MARKET": "Pasaran Sasaran",
   "BENEFITS": "Kelebihan",
   "PRODUCT_HAS_OPTIONS": "Produk Mempunyai Pilihan",

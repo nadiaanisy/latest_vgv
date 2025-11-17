@@ -14,6 +14,7 @@
     "SAVE": "Save",
     "UPDATE": "Update",
     "DELETE": "Delete",
+    "DELETING": "Deleting...",
     "ADD": "Add",
     "UPLOAD": "Upload",
     "ADD_TESTIMONIAL": "Add Testimonial",
@@ -31,7 +32,8 @@
     "CLEAR_ALL": "Clear All",
     "CLEAR_FILTERS": "Clear Filters",
     "PREVIOUS": "Previous",
-    "NEXT": "Next"
+    "NEXT": "Next",
+    "REMOVE": "Remove"
   },
   "PLACEHOLDERS": {
     "USERNAME": "Enter username",

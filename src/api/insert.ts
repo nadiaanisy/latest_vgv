@@ -71,8 +71,8 @@ export const addProducts = async (
         name: opt.name,
         description: opt.description,
         image: opt.image,
-        originalPrice: opt.originalPrice,
-        salePrice: opt.salePrice,
+        originalPrice: parseFloat(opt.originalPrice).toFixed(2),
+        salePrice: parseFloat(opt.salePrice).toFixed(2),
         shopeeLink: opt.shopeeLink,
       }));
 
