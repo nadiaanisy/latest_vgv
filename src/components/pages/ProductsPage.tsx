@@ -487,7 +487,7 @@ export function ProductsPage({
           {filteredProducts.length > 0 && totalPages > 1 && (
             <Card className="mt-8 border-2">
               <CardContent className="p-6">
-                <div className="flex items-center justify-between">
+                <div className="flex flex-col md:flex-row items-center justify-between">
                   <div className="text-sm text-muted-foreground">
                     {t('SHOWING')} {startIndex + 1}-{Math.min(endIndex, filteredProducts.length)} {t('OF')} {filteredProducts.length} {t('PRODUCTS')}
                   </div>
