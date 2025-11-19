@@ -20,7 +20,7 @@ export function Main({
   const { t } = useCustomHook();
 
   return (
-    <section className="w-full bg-gradient-to-br from-primary/5 to-primary/10 pt-5 md:pt-16 pb-4 md:pb-[136px]">
+    <section className="w-full bg-gradient-to-br from-primary/5 to-primary/10 pt-5 md:pt-16 pb-[17rem] md:pb-[159px]">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div className="space-y-8">

@@ -156,7 +156,7 @@ export function ProductSlider({
       </Button>
       
       {/* Slide indicators */}
-      <div className="relative top-[155px] md:top-[130px] flex justify-center gap-2 mt-4">
+      <div className="relative top-[250px] md:top-[160px] flex justify-center gap-2 mt-4">
         {products.map((_, index) => (
           <button
             key={index}
@@ -171,7 +171,7 @@ export function ProductSlider({
       </div>
 
       {/* Product counter */}
-      <div className="relative top-[155px] md:top-[130px] text-center mt-2">
+      <div className="relative top-[250px] md:top-[160px] text-center mt-2">
         <p className="text-sm text-muted-foreground">
           {currentIndex + 1} {t('OF')} {products.length}
         </p>

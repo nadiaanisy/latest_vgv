@@ -29,7 +29,7 @@ import { languages } from '../../assets/constants';
 import { useCustomHook } from '../../utils/customHooks';
 import vlogo from '../../assets/images/others/vlogo.png';
 import { ImageWithFallback } from '../../functions/imageWithFallback';
-// import { AdminAnalytics } from './AdminAnalytics';
+import { AdminAnalyticsManagement } from './AdminAnalyticsManagement';
 import { AdminProductManagement } from './AdminProductManagement';
 import { AdminTestimonialManagement } from './AdminTestimonialManagement';
 
@@ -144,7 +144,7 @@ export function AdminDashboard({
                   className="gap-2 data-[state=active]:bg-primary data-[state=active]:!text-white"
                 >
                   <BarChart3 className="w-4 h-4" />
-                  <span className="hidden sm:inline">{t('ANALYTICS')} PENDING</span>
+                  <span className="hidden sm:inline">{t('ANALYTICS')}</span>
                   <span className="sm:hidden">{t('STATS')}</span>
                 </TabsTrigger>
                 <TabsTrigger
@@ -168,9 +168,9 @@ export function AdminDashboard({
           </Card>
 
           {/* Tab Content */}
-          {/* <TabsContent value="analytics" className="space-y-6">
-            <AdminAnalytics />
-          </TabsContent> */}
+          <TabsContent value="analytics" className="space-y-6">
+            <AdminAnalyticsManagement />
+          </TabsContent>
 
           <TabsContent value="products" className="space-y-6">
             <AdminProductManagement />
