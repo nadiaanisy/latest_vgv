@@ -29,6 +29,9 @@ import {
   ArrowLeft, 
   MessageCircle,
   Check,
+  Zap,
+  Users,
+  Star,
   Instagram,
   ShoppingBag,
   TestTube,
@@ -178,6 +181,121 @@ export function ProductsPage({
               </Button>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Animation Teaser Section */}
+      <section className="w-full py-12 bg-gradient-to-br from-[#7aea18]/10 to-[#8f1eae]/10">
+        <div className="max-w-7xl mx-auto px-6">
+          <Card className="overflow-hidden border-2 border-primary/20 bg-white/80 backdrop-blur-sm">
+            <div className="grid lg:grid-cols-2 gap-8 items-center">
+              {/* Left: Video Preview */}
+              <div className="relative aspect-[4/3] lg:aspect-square bg-gradient-to-br from-primary/5 to-primary/10 rounded-lg overflow-hidden">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center space-y-4 p-8">
+                    <div className="w-24 h-24 mx-auto bg-white rounded-full flex items-center justify-center shadow-lg">
+                      <div
+                        className="w-16 h-16 rounded-full flex items-center justify-center"
+                        style={{
+                          background: "radial-gradient(circle at top left, #8f1eae, #7aea18)"
+                        }}
+                      >
+                        {/* Play Icon */}
+                        <svg
+                          width="20"
+                          height="20"
+                          viewBox="0 0 24 24"
+                          fill="white"
+                          className="ml-[2px]"
+                        >
+                          <path d="M8 5v14l11-7z" />
+                        </svg>
+                      </div>
+                    </div>
+                    <div className="space-y-2">
+                      <Badge variant="secondary" className="bg-primary/10 text-primary">{t('FEATURED_STORY')}</Badge>
+                      <h3 className="text-2xl font-medium text-foreground">Wetty Sports Wipes</h3>
+                      <div className="text-sm text-muted-foreground max-w-sm mx-auto">{t('FEATURED_STORY_SUBTITLE')}</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right: Content */}
+              <div className="p-8 space-y-6">
+                <div className="space-y-3">
+                  <div className="inline-flex items-center gap-2">
+                    <Star className="w-5 h-5 text-[#7aea18]" fill="currentColor" />
+                    <Badge variant="secondary" className="bg-green-100 text-green-800">{t('NEW_ANIMATION_RELEASE')}</Badge>
+                  </div>
+                  <h2 className="text-3xl font-medium text-foreground">{t('ANIMATION_TITLE')}</h2>
+                  <div className="text-base text-muted-foreground leading-relaxed">{t('ANIMATION_SUBTITLE')}</div>
+                </div>
+
+                <div className="space-y-3">
+                  <h4 className="font-medium text-foreground flex items-center gap-2">
+                    <Zap className="w-4 h-4 text-primary" />
+                    {t('WHAT_WILL_YOU_SEE')}
+                  </h4>
+                  <ul className="space-y-2">
+                    {[
+                      t('ANIMATION_POINT_1'),
+                      t('ANIMATION_POINT_2'),
+                      t('ANIMATION_POINT_3'),
+                      t('ANIMATION_POINT_4'),
+                      t('ANIMATION_POINT_5')
+                    ].map((feature, idx) => (
+                      <li key={idx} className="flex items-start gap-2 text-sm">
+                        <Check className="w-4 h-4 text-[#7aea18] mt-0.5 flex-shrink-0" />
+                        <span className="text-muted-foreground">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Button 
+                    size="lg" 
+                    className="gap-2 hover:opacity-90 text-sm"
+                    style={{
+                      background: "linear-gradient(to right, #8f1eae, #7aea18)",
+                    }}
+                    onClick={() => {
+                      onNavigate('wetty-sport-animation')
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                  >
+                    <Eye className="w-5 h-5" />
+                    {t('BUTTONS.WATCH_FULL_STORY')}
+                  </Button>
+                  <Button 
+                    variant="outline"
+                    size="lg" 
+                    className="gap-2"
+                    style={{ borderColor: 'rgba(0, 0, 0, 0.1)' }}
+                    onClick={() => {
+                      setSearchQuery('Wetty Sports Wipes')
+                      window.scrollBy({ top: 800, behavior: 'smooth' })
+                    }}
+                  >
+                    <ShoppingBag className="w-5 h-5" />
+                    {t('BUTTONS.SHOP_NOW')}
+                  </Button>
+                </div>
+
+                <div className="flex items-center gap-4 text-xs text-muted-foreground pt-2">
+                  <div className="flex items-center gap-1">
+                    <Calendar className="w-3 h-3" />
+                    <span>{t('ANIMATION_DURATION')}</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <Users className="w-3 h-3" />
+                    <span>{t('ANIMATION_USER')}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Card>
         </div>
       </section>
 
