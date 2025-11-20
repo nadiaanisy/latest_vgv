@@ -44,6 +44,7 @@
   --sidebar-accent-foreground: #495057;
   --sidebar-border: #e9ecef;
   --sidebar-ring: #8f1eae;
+  --ultra-light-green: #f8fef4;
 }
 
 .dark {
@@ -213,6 +214,10 @@ html {
 
 .bg-secondary {
   background-color: var(--secondary);
+}
+
+.bg-ultra-light-green {
+  background-color: var(--ultra-light-green);
 }
 
 .text-secondary-foreground {

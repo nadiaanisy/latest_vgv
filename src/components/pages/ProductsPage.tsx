@@ -138,7 +138,7 @@ export function ProductsPage({
   ].filter(Boolean).length
 
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen bg-ultra-light-green">
       {/* Header Section */}
       <section className="w-full py-12 bg-gradient-to-br from-primary/5 to-primary/10">
         <div className="max-w-7xl mx-auto px-6">

@@ -58,7 +58,7 @@ export function HomePage({
   }
 
   return (
-    <main>
+    <main className="bg-ultra-light-green">
       <Main
         onNavigate={onNavigate}
         products={products}
