@@ -11,6 +11,7 @@ import { ContactUsPage } from './components/pages/ContactUsPage';
 import { SplashScreen } from './components/sections/SplashScreen';
 import { TestimonialPage } from './components/pages/TestimonialPage';
 import { BackgroundMusic } from './components/sections/BackgroundMusic';
+import { WettySportAnimation } from './components/sections/WettySportAnimation';
 
 /* ADMIN PAGES */
 import { AdminLogin } from './components/admin/AdminLogin';
@@ -124,6 +125,8 @@ export default function App() {
         />
       case 'contact-us':
         return <ContactUsPage onNavigate={handleNavigate} />
+      case 'wetty-sport-animation':
+        return <WettySportAnimation onNavigate={handleNavigate} />
       case 'home':
       default:
         return <HomePage
