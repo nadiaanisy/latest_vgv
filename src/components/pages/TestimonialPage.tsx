@@ -18,7 +18,11 @@ import {
   BarChart3,
   MessageCircle,
   Instagram,
-  MapPin
+  MapPin,
+  DollarSign,
+  Phone,
+  TrendingUp,
+  Users
 } from 'lucide-react';
 import {
   Carousel,
@@ -75,6 +79,38 @@ export function TestimonialPage({
     }
   }, [testimonials, setIsLoading]);
 
+  // STATIC DATA FOR METRICS - TO BE FETCHED FROM API LATER
+  const metrics = [
+  {
+    icon: <Users className="w-6 h-6" />,
+    label: "UNITS_SOLD",
+    value: "44",
+    subtext: "ACROSS_ALL_PRODUCT_LINES",
+    color: "text-blue-600"
+  },
+  {
+    icon: <DollarSign className="w-6 h-6" />,
+    label: "REVENUE",
+    value: "RM192.34",
+    subtext: "TOTAL_SALES_TO_DATE",
+    color: "text-green-600"
+  },
+  {
+    icon: <Phone className="w-6 h-6" />,
+    label: "CUSTOMERS_APPROACHED",
+    value: "1,200",
+    subtext: "DIRECT_OUTREACH_CONTACTS",
+    color: "text-purple-600"
+  },
+  {
+    icon: <TrendingUp className="w-6 h-6" />,
+    label: "CONVERSION_RATE",
+    value: "3.67%",
+    subtext: "ABOVE_INDUSTRY_AVERAGE",
+    color: "text-orange-600"
+  }
+];
+
   return (
     <main className="min-h-screen bg-ultra-light-green">
       {/* Header Section */}
@@ -115,8 +151,7 @@ export function TestimonialPage({
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            amek dari api
-            {/* {metrics.map((metric, index) => (
+            {metrics.map((metric, index) => (
               <Card key={index} className="text-center p-6 hover:shadow-lg transition-shadow">
                 <CardContent className="p-0">
                   <div className={`inline-flex items-center justify-center w-12 h-12 rounded-lg bg-muted mb-4 ${metric.color}`}>
@@ -133,7 +168,7 @@ export function TestimonialPage({
                   </div>
                 </CardContent>
               </Card>
-            ))} */}
+            ))}
           </div>
         </div>
       </section>

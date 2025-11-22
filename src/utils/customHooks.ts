@@ -1,4 +1,5 @@
 import {
+  Order,
   Product,
   Testimonial
 } from './interface';
@@ -35,6 +36,8 @@ export const useCustomHook= () => {
   const [products, setProducts] = useState<Product[]>([]);
   const [deleteProductId, setDeleteProductId] = useState<string | null>(null);
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
+  const [averageSatisfaction, setAverageSatisfaction] = useState<number>(0);
+  const [orders, setOrders] = useState<Order[]>([])
 
    /*Handle pages navigation*/
   const handleNavigate = (page: string, productId?: string) => {
@@ -117,6 +120,10 @@ export const useCustomHook= () => {
     deleteProductId,
     setDeleteProductId,
     editingProduct,
-    setEditingProduct
+    setEditingProduct,
+    averageSatisfaction,
+    setAverageSatisfaction,
+    orders,
+    setOrders
   }
 }

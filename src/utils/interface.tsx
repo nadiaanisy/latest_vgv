@@ -117,3 +117,53 @@ export interface ProductFormData {
     shopeeLink: string
   }[]
 }
+
+export interface OrderItem {
+  order_id: string
+  product_id: string
+  product_name: string
+  quantity: number
+  unit_price: number
+  percent_mark: number
+  total_price: number
+  profit_per_item: number
+  cost_price: number
+}
+
+export interface Order {
+  id: string
+  total_price: number
+  status: 'pending' | 'processing' | 'shipped' | 'delivered' | 'cancelled'
+  payment_method: string
+  shipping_address: string
+  billing_address: string
+  shipping_charge: number
+  customer_name: string
+  customer_email: string
+  customer_phone: string
+  order_date: string
+  items: OrderItem[]
+}
+
+export interface OrderItem {
+  product_id: string
+  product_name: string
+  quantity: number
+  unit_price: number
+  cost_price: number
+  percent_mark: number
+  profit_per_item: number
+  total_price: number
+}
+
+export interface NewOrder {
+  customer_name: string
+  customer_email: string
+  customer_phone: string
+  shipping_address: string
+  billing_address: string
+  payment_method: string
+  shipping_charge: number
+  status: 'pending' | 'processing' | 'shipped' | 'delivered' | 'cancelled'
+  items: OrderItem[]
+}

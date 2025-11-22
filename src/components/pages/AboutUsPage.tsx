@@ -145,30 +145,30 @@ export function AboutUsPage({ onNavigate }: AboutUsPageProps) {
             <div className="text-center">
               <div className="flex items-center justify-center gap-2 mb-2">
                 <Package className="w-5 h-5 text-primary" />
-                <span className="text-2xl font-medium">(NEED UPDATE) $1,299</span>
+                <span className="text-2xl font-medium">Less than RM100</span>
               </div>
-              <p className="text-sm text-muted-foreground">(NEED UPDATE) Launch price</p>
+              <p className="text-sm text-muted-foreground">Launch price</p>
             </div>
             <div className="text-center">
               <div className="flex items-center justify-center gap-2 mb-2">
                 <Users className="w-5 h-5 text-primary" />
-                <span className="text-2xl font-medium">(NEED UPDATE) 50M</span>
+                <span className="text-2xl font-medium">10M</span>
               </div>
-              <p className="text-sm text-muted-foreground">(NEED UPDATE) Target market size</p>
+              <p className="text-sm text-muted-foreground">Target market size</p>
             </div>
             <div className="text-center">
               <div className="flex items-center justify-center gap-2 mb-2">
                 <Handshake className="w-5 h-5 text-primary" />
-                <span className="text-2xl font-medium">(NEED UPDATE) 15+</span>
+                <span className="text-2xl font-medium">1+</span>
               </div>
-              <p className="text-sm text-muted-foreground">(NEED UPDATE) Retail partners</p>
+              <p className="text-sm text-muted-foreground">Retail partners</p>
             </div>
             <div className="text-center">
               <div className="flex items-center justify-center gap-2 mb-2">
                 <Star className="w-5 h-5 text-primary" />
-                <span className="text-2xl font-medium">(NEED UPDATE) Q2 2025</span>
+                <span className="text-2xl font-medium">Q1 2026</span>
               </div>
-              <p className="text-sm text-muted-foreground">(NEED UPDATE) Launch timeline</p>
+              <p className="text-sm text-muted-foreground">Launch timeline</p>
             </div>
           </div>
         </div>

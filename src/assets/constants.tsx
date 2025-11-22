@@ -58,6 +58,8 @@ export const db = {
     testimonials: 'testimonials',
     products: 'products',
     productOptions: 'product_options',
+    orders: 'orders',
+    order_items: 'order_items'
   },
   query: {
     all: '*'

@@ -11,61 +11,88 @@ import {
   Users,
   Star,
   Package,
-  MessageSquare
 } from 'lucide-react';
 import { Progress } from '../ui/progress';
+import {
+  useEffect,
+} from 'react';
+import { fetchTestimonials } from '../../api/get';
 import { useCustomHook } from '../../utils/customHooks';
+import { Testimonial } from '../../utils/interface';
 
 export function AdminAnalyticsManagement() {
-    const {
-        t
-    } = useCustomHook();
-  // Mock data - in production, this would come from analytics API
-//   const metrics = [
-//     {
-//       title: 'Total Sales',
-//       value: 'RM 45,280',
-//       change: '+12.5%',
-//       trend: 'up',
-//       icon: ShoppingCart,
-//       color: 'text-green-600',
-//       bgColor: 'bg-green-100',
-//     },
-//     {
-//       title: 'Total Orders',
-//       value: '342',
-//       change: '+8.2%',
-//       trend: 'up',
-//       icon: Package,
-//       color: 'text-blue-600',
-//       bgColor: 'bg-blue-100',
-//     },
-//     {
-//       title: 'Total Customers',
-//       value: '1,248',
-//       change: '+15.3%',
-//       trend: 'up',
-//       icon: Users,
-//       color: 'text-purple-600',
-//       bgColor: 'bg-purple-100',
-//     },
-//     {
-//       title: 'Average Rating',
-//       value: '4.8/5.0',
-//       change: '+0.3',
-//       trend: 'up',
-//       icon: Star,
-//       color: 'text-yellow-600',
-//       bgColor: 'bg-yellow-100',
-//     },
-//   ]
+  const {
+    t,
+    averageSatisfaction,
+    setAverageSatisfaction
+  } = useCustomHook();
 
-//   const productPerformance = [
-//     { name: 'Family Fun Wetsuit', sales: 145, percentage: 85 },
-//     { name: 'Mother & Baby Care Wetsuit', sales: 98, percentage: 65 },
-//     { name: 'Sports Pro Wetsuit', sales: 76, percentage: 50 },
-//     { name: 'Adventure Dive Wetsuit', sales: 23, percentage: 20 },
-//   ]
+  useEffect(() => {
+    const fetchTestimonialsData = async () => {
+      const data = await fetchTestimonials();
+
+      if (data.length > 0) {
+        const avg = data.reduce((sum: number, t: Testimonial) => sum + t.rating, 0) / data.length;
+
+        setAverageSatisfaction(Math.round((avg / 5) * 100));
+      }
+    };
+    
+    fetchTestimonialsData();
+  }, [])
+
+  //STATIC FIRST - TO BE DYNAMIC LATER
+  const totalSold = 50;
+  const totalReturned = 6;
+  const absoluteTotalSold = totalSold - totalReturned;
+  const totalRevenue = 192.34;
+  const avgOrderVal = totalRevenue / absoluteTotalSold;
+  const visitors = 1200;
+  const conversionRate = (absoluteTotalSold / visitors) * 100;
+  const productPerformance = [
+    { name: 'Mosquito Repellent', sales: 5, percentage: 5 / totalSold * 100 },
+    { name: 'Baby Diaper', sales: 5, percentage: 5 / totalSold * 100 },
+    { name: 'Baby Wash', sales: 4, percentage: 4 / totalSold * 100 },
+    { name: 'Coconut Nectar', sales: 4, percentage: 4 / totalSold * 100 },
+  ]
+  const metrics = [
+    {
+      title: t('TOTAL_REVENUE'),
+      value: `RM ${totalRevenue.toFixed(2)}`,
+      change: '+10%',
+      trend: 'up',
+      icon: ShoppingCart,
+      color: 'text-green-600',
+      bgColor: 'bg-green-100',
+    },
+    {
+      title: t('TOTAL_ORDERS'),
+      value: `${absoluteTotalSold}`,
+      change: '+0.5%',
+      trend: 'up',
+      icon: Package,
+      color: 'text-blue-600',
+      bgColor: 'bg-blue-100',
+    },
+    {
+      title: 'Total Customers',
+      value: visitors.toString(),
+      change: '+15.3%',
+      trend: 'up',
+      icon: Users,
+      color: 'text-purple-600',
+      bgColor: 'bg-purple-100',
+    },
+    {
+      title: 'Average Rating',
+      value: averageSatisfaction.toString() + '%',
+      change: '+0.50%',
+      trend: 'up',
+      icon: Star,
+      color: 'text-yellow-600',
+      bgColor: 'bg-yellow-100',
+    },
+  ]
 
 //   const recentActivity = [
 //     { type: 'order', message: 'New order #1234 received', time: '5 minutes ago' },
@@ -86,7 +113,7 @@ export function AdminAnalyticsManagement() {
       </div>
 
       {/* Key Metrics Grid */}
-      {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
         {metrics.map((metric, index) => {
           const Icon = metric.icon
           return (
@@ -111,15 +138,15 @@ export function AdminAnalyticsManagement() {
             </Card>
           )
         })}
-      </div> */}
+      </div>
 
       {/* Product Performance and Recent Activity */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Product Performance */}
-        {/* <Card className="border-2">
+        <Card className="border-2">
           <CardHeader>
-            <CardTitle className="text-foreground">Product Performance</CardTitle>
-            <CardDescription>Best selling products this month</CardDescription>
+            <CardTitle className="text-foreground">{t('PRODUCT_PERFORMANCE')}</CardTitle>
+            <CardDescription>{t('PRODUCT_PERFORMANCE_SUBTITLE')}</CardDescription>
           </CardHeader>
           <CardContent className="space-y-6">
             {productPerformance.map((product, index) => (
@@ -132,13 +159,13 @@ export function AdminAnalyticsManagement() {
               </div>
             ))}
           </CardContent>
-        </Card> */}
+        </Card>
 
         {/* Recent Activity */}
         {/* <Card className="border-2">
           <CardHeader>
-            <CardTitle className="text-foreground">Recent Activity</CardTitle>
-            <CardDescription>Latest updates and notifications</CardDescription>
+            <CardTitle className="text-foreground">{t('RECENT_ACTIVITY')}</CardTitle>
+            <CardDescription>{t('RECENT_ACTIVITY_SUBTITLE')}</CardDescription>
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
@@ -165,37 +192,37 @@ export function AdminAnalyticsManagement() {
       </div>
 
       {/* Additional Stats */}
-      {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <Card className="border-2">
           <CardHeader>
-            <CardTitle className="text-sm text-muted-foreground">Conversion Rate</CardTitle>
+            <CardTitle className="text-sm text-muted-foreground">{t('CONVERSION_RATE')}</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-medium text-foreground">24.8%</div>
-            <Progress value={24.8} className="mt-2 h-2" />
+            <div className="text-2xl font-medium text-foreground">{conversionRate.toFixed(2)}%</div>
+            <Progress value={conversionRate} className="mt-2 h-2" />
           </CardContent>
         </Card>
 
         <Card className="border-2">
           <CardHeader>
-            <CardTitle className="text-sm text-muted-foreground">Avg. Order Value</CardTitle>
+            <CardTitle className="text-sm text-muted-foreground">{t('AVG_ORDER_VALUE')}</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-medium text-foreground">RM 132.50</div>
-            <Progress value={65} className="mt-2 h-2" />
+            <div className="text-2xl font-medium text-foreground">RM {avgOrderVal.toFixed(2)}</div>
+            <Progress value={avgOrderVal} className="mt-2 h-2" />
           </CardContent>
         </Card>
 
         <Card className="border-2">
           <CardHeader>
-            <CardTitle className="text-sm text-muted-foreground">Customer Satisfaction</CardTitle>
+            <CardTitle className="text-sm text-muted-foreground">{t('CUSTOMER_SATISFACTION')}</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-2xl font-medium text-foreground">96%</div>
-            <Progress value={96} className="mt-2 h-2" />
+            <div className="text-2xl font-medium text-foreground">{averageSatisfaction}%</div>
+            <Progress value={averageSatisfaction} className="mt-2 h-2" />
           </CardContent>
         </Card>
-      </div> */}
+      </div>
     </div>
   )
 }
